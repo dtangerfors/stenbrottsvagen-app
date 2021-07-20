@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import FixedHeader from "../components/FixedHeader";
 import Header from "../components/Header";
 import ViewAllBookings from "../components/ViewAllBookings";
 import Weather from "../components/Weather";
@@ -38,27 +39,24 @@ function Hem() {
           </div>
         </Header>
         <main className="grid">
-          <section className="py-20 px-8 lg:px-20 bg-gray-100">
-            <div className=" w-full max-w-screen-xl mx-auto">
-              <div className="mb-12">
-                <h2 className="text-black text-title1">Inlagda bokningar</h2>
-              </div>
+          <section className="py-20 px-8 lg:px-20 bg-gray-100 dark:bg-gray-900">
+            <FixedHeader><h2 className="text-black dark:text-white text-title1">Inlagda bokningar</h2></FixedHeader>
+            <div className="w-full max-w-screen-xl mx-auto">
+              
               <div className="w-full grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                 <ViewAllBookings />
               </div>
             </div>
           </section>
           <section className="py-20 px-8 lg:px-20">
+          <FixedHeader><h2 className="text-white dark:text-white text-title1">Bra att veta</h2></FixedHeader>
             <div className="w-full max-w-screen-xl mx-auto">
-              <div className="mb-12">
-                <h2 className="text-white text-title1">Bra att veta</h2>
-              </div>
               <div className="grid gap-8 lg:grid-cols-3">
-                <div className="rounded-sm shadow-xl pt-8 pb-12 bg-white w-full">
+                <div className="rounded-sm shadow-xl pt-8 pb-12 bg-white w-full dark:bg-black">
                   <div className="text-center mb-10">
-                    <h3 className="font-sans text-title2 text-black">Hyra</h3>
+                    <h3 className="font-sans text-title2 text-black dark:text-white">Hyra</h3>
                   </div>
-                  <table className="relative w-full text-left text-headline text-black">
+                  <table className="relative w-full text-left text-headline text-black dark:text-gray-100">
                     <tbody>
                       <tr>
                         <th className="pb-2 first:pl-8 last:pr-8">
@@ -67,7 +65,7 @@ function Hem() {
                         <th className="pb-2 first:pl-8 last:pr-8">Vuxen</th>
                         <th className="pb-2 first:pl-8 last:pr-8">Barn</th>
                       </tr>
-                      <tr className="bg-gray-100">
+                      <tr className="bg-gray-100 dark:bg-gray-700">
                         <td className="py-2 first:pl-8 last:pr-8">En vecka</td>
                         <td className="py-2 first:pl-8 last:pr-8">300 kr</td>
                         <td className="py-2 first:pl-8 last:pr-8">100 kr</td>
@@ -79,14 +77,14 @@ function Hem() {
                         <td className="py-2 first:pl-8 last:pr-8">400 kr</td>
                         <td className="py-2 first:pl-8 last:pr-8">150 kr</td>
                       </tr>
-                      <tr className="bg-gray-100">
+                      <tr className="bg-gray-100 dark:bg-gray-700">
                         <td className="py-2 first:pl-8 last:pr-8">
                           Två veckor
                         </td>
                         <td className="py-2 first:pl-8 last:pr-8">500 kr</td>
                         <td className="py-2 first:pl-8 last:pr-8">200 kr</td>
                       </tr>
-                      <tr className="text-gray-600">
+                      <tr className="text-gray-600 dark:text-gray-100">
                         <td colSpan="3" className="pt-8 px-8">
                           Uthyrning för vecka 3500:- Pengarna insättes på konto:
                           5385 015 163-8, senast samma år.
@@ -95,20 +93,20 @@ function Hem() {
                     </tbody>
                   </table>
                 </div>
-                <div className="rounded-sm shadow-xl pt-8 pb-12 bg-white w-full">
+                <div className="rounded-sm shadow-xl pt-8 pb-12 bg-white w-full dark:bg-black">
                   <div className="text-center mb-10">
-                    <h3 className="font-sans text-title2 text-black">
+                    <h3 className="font-sans text-title2 text-black dark:text-white">
                       Sophämtning
                     </h3>
                   </div>
-                  <table className="relative w-full text-left text-headline text-black">
+                  <table className="relative w-full text-left text-headline text-black dark:text-gray-100">
                     <tbody>
                       <tr>
                         <th className="pb-2 first:pl-8 last:pr-8">Hämtning</th>
                         <th className="pb-2 first:pl-8 last:pr-8">Period</th>
                         <th className="pb-2 first:pl-8 last:pr-8">Tisdag</th>
                       </tr>
-                      <tr className="bg-gray-100">
+                      <tr className="bg-gray-100 dark:bg-gray-700">
                         <td className="py-2 first:pl-8 last:pr-8">Brännbart</td>
                         <td className="py-2 first:pl-8 last:pr-8">14-dag</td>
                         <td className="py-2 first:pl-8 last:pr-8">Udda v</td>
@@ -121,29 +119,29 @@ function Hem() {
                     </tbody>
                   </table>
                 </div>
-                <div className="rounded-sm shadow-xl pt-8 pb-12 bg-white w-full">
+                <div className="rounded-sm shadow-xl pt-8 pb-12 bg-white w-full dark:bg-black">
                   <div className="text-center mb-10">
-                    <h3 className="font-sans text-title2 text-black">
+                    <h3 className="font-sans text-title2 text-black dark:text-white">
                       Övrig info
                     </h3>
                   </div>
                   <div className="relative px-8 pb-8">
-                    <h4 className="text-headline font-bold">ÅVC Fårösund</h4>
-                    <p className="text-headline">
+                    <h4 className="text-headline font-bold dark:text-white">ÅVC Fårösund</h4>
+                    <p className="text-headline dark:text-gray-100">
                       Förutom vanligt avfall går det även att lämna
                       betalsopsäckar. Grovavfall lämnas mot avgift, 50 kr
                       (personbil) eller 100 kr (+släpvagn). Öppettider enligt
                       nedan.
                     </p>
                   </div>
-                  <table className="relative w-full text-left text-headline text-black">
+                  <table className="relative w-full text-left text-headline text-black dark:text-gray-100">
                     <tbody>
                       <tr>
                         <th className="pb-2 first:pl-8 last:pr-8">Måndag</th>
                         <th className="pb-2 first:pl-8 last:pr-8">Torsdag</th>
                         <th className="pb-2 first:pl-8 last:pr-8">Lördag</th>
                       </tr>
-                      <tr className="bg-gray-100">
+                      <tr className="bg-gray-100 dark:bg-gray-700">
                         <td className="py-2 first:pl-8 last:pr-8">7-18</td>
                         <td className="py-2 first:pl-8 last:pr-8">7-15/18</td>
                         <td className="py-2 first:pl-8 last:pr-8">9-15</td>

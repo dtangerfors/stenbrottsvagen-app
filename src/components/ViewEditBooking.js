@@ -29,8 +29,8 @@ function ViewEditBooking(props) {
     <section className="grid lg:grid-cols-2 min-w-full gap-8">
       <div>
         <div className="mb-12">
-          <h2 className="text-title1 text-black">Mina bokningar</h2>
-          <p className="text-base text-gray-700">
+          <h2 className="text-title1 text-black dark:text-white">Mina bokningar</h2>
+          <p className="text-base text-gray-700 dark:text-gray-300">
             Här visas alla dina kommande och tidigare bokningar
           </p>
         </div>

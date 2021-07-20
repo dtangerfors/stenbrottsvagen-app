@@ -2,7 +2,7 @@ const colors = require('tailwindcss/colors');
 
 module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'media', // or 'media' or 'class'
   theme: {
     fontFamily: {
       sans: ['Clash Grotesk', 'sans-serif'],
@@ -31,13 +31,15 @@ module.exports = {
         'cover-bg': "linear-gradient(to left bottom, rgba(43, 140, 121, .25), rgba(44, 86, 78, .8)), url('/src/images/cover-spring.jpg')",
         'portrait-cover-bg': "linear-gradient(to left bottom, rgba(43, 140, 121, .25), rgba(44, 86, 78, .8)), url('/src/images/cover-spring-portrait.jpg')",
         'info-bg': "linear-gradient(to left bottom, rgba(0,0,0, .1), #2c564e), url('/src/images/hero.jpg')",
-        'menu-bg': "url(/src/images/menu-bg.svg)"
+        'menu-bg': "url(/src/images/menu-bg.svg)",
+        'menu-dark': "url(/src/images/menu-bg-dark.svg)",
        }),
        colors: {
         primary: '#5cdb95',
         primaryLight: '#E1F4F0',
         secondary: '#379683',
         black: '#222',
+        ultraBlack: '#000',
        },
        scale: {
          '101': '1.01'
@@ -69,6 +71,7 @@ module.exports = {
       padding: ['last', 'first'],
       margin: ['last', 'first'],
       flexShrink: ['last'],
+      backgroundImage: ['dark'],
     },
   },
   plugins: [],

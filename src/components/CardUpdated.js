@@ -29,20 +29,20 @@ function Card(props) {
 
     if (guests <= 1) word = 'gäst';
 
-    return <p className="text-gray-700 text-base"><i className="ri-user-3-line text-secondary text-base align-bottom"></i> {guests} {word}</p>
+    return <p className="text-gray-700 text-base dark:text-gray-300"><i className="ri-user-3-line text-secondary text-base align-bottom"></i> {guests} {word}</p>
   }
 
   getRoomName();
 
   return (
-    <div className="grid grid-cols-6 flex-30 rounded-sm mb-7 shadow-xl p-8 bg-white">
+    <div className="grid grid-cols-6 flex-30 rounded-sm mb-7 shadow-xl p-8 bg-white dark:bg-black">
       <div className="col-span-4">
-        <p className="text-black text-base font-medium">{booking.bookingName}</p>
-        {booking.bookingMessage ? <p className="text-gray-700 text-headline">{booking.bookingMessage}</p> : null }
+        <p className="text-black text-base font-medium dark:text-white">{booking.bookingName}</p>
+        {booking.bookingMessage ? <p className="text-gray-700 text-headline dark:text-gray-300">{booking.bookingMessage}</p> : null }
       </div>
 
       <div className="col-span-2 justify-self-end">
-        <div className="bg-primaryLight text-base p-4 rounded-xl inline-block text-secondary">
+        <div className="bg-primaryLight text-base p-4 rounded-xl inline-block text-secondary dark:bg-secondary dark:text-primaryLight">
           <span>{bookedDates(booking.bookingArrival)} - {bookedDates(booking.bookingDeparture)}</span>
         </div>
       </div>
@@ -52,7 +52,7 @@ function Card(props) {
       </div>
       
       <div className="col-span-full mt-2">
-        <p className="text-gray-700 text-base"><i className="ri-home-4-line text-secondary text-base align-bottom"></i> {rooms.join(', ')}</p>
+        <p className="text-gray-700 text-base dark:text-gray-300"><i className="ri-home-4-line text-secondary text-base align-bottom"></i> {rooms.join(', ')}</p>
       </div>
       
 

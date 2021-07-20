@@ -6,7 +6,7 @@ function NavPill(props) {
     <NavLink
       exact
       to={props.to}
-      className="flex-1 px-8 pt-2 pb-safeBottom flex flex-col bg-white border-gray-200 border-t text-sm leading-8 text-gray-400 text-center hover:bg-gray-100 transition-all ease-in-out duration-200"
+      className="flex-1 px-8 pt-2 pb-safeBottom flex flex-col bg-white border-gray-200 border-t text-sm leading-8 text-gray-400 text-center hover:bg-gray-100 transition-all ease-in-out duration-200 dark:bg-black dark:border-gray-700 dark:hover:bg-gray-800"
       activeClassName="text-primary"
     >
       {props.children}
@@ -22,7 +22,7 @@ function Nav() {
       </NavPill>
       <div
         style={{ width: "120px" }}
-        className="relative bg-menu-bg bg-no-repeat bg-center-top bg-cover"
+        className="relative bg-menu-bg dark:bg-menu-dark bg-no-repeat bg-center-top bg-cover"
       >
         <NavLink
           exact
