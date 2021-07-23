@@ -44,7 +44,7 @@ function Profil(props) {
             </>
           ) : null}
       </header>
-      <main className="grid py-20 pb-32 px-8 lg:px-20 bg-gray-100 justify-self-stretch dark:bg-gray-900">
+      <main className="grid py-20 pb-32 px-8 lg:px-20 bg-gray-100 flex-1 dark:bg-gray-900">
         <ViewEditBooking
           user={props.user}
           onBookingComplete={props.onBookingComplete}
