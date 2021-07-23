@@ -8,6 +8,13 @@ html {
 
 body {
     min-height: 100vh;
+    background-color: #FFF;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: rgb(34, 34, 34);
+    }
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
