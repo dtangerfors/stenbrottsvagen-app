@@ -52,7 +52,8 @@ module.exports = {
         'full': '100%',
        },
        padding: {
-         safeBottom: 'max(2rem, env(safe-area-inset-bottom))'
+         safeBottom: 'max(2rem, env(safe-area-inset-bottom))',
+         '100': '100%'
        },
        flex: {
         '30': '1 1 30rem'
