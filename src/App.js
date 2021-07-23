@@ -8,7 +8,9 @@ import Nav from "./components/Nav.js";
 import Profil from "./pages/Profil.js";
 import Boka from "./pages/Boka.js";
 import Hem from "./pages/Hem.js";
+import Galleri from "./pages/Galleri.js";
 import Complete from "./components/Complete.js";
+import Info from "./pages/Info.js";
 
 export default class App extends Component {
   constructor() {
@@ -81,7 +83,7 @@ export default class App extends Component {
           {this.state.user.userData ? (
             <Router>
               
-                <div className="grid relative min-h-screen">
+                <div className="flex flex-col relative min-h-screen">
                   <Switch>
                     <Route path="/profil">
                       <Profil
@@ -96,6 +98,12 @@ export default class App extends Component {
                         onBookingComplete={this.handleCompleteBooking}
                         status={this.state.bookingSuccess.status}
                       />
+                    </Route>
+                    <Route path="/galleri">
+                      <Galleri />
+                    </Route>
+                    <Route path="/info">
+                      <Info />
                     </Route>
                     <Route path="/">
                       <Hem />
