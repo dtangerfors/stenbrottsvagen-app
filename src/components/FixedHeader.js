@@ -38,7 +38,7 @@ export default function FixedHeader(props) {
   });
 
   return (
-    <div className="sticky z-10 top-0 -mx-8 lg:-mx-20 pt-6 pb-4 mb-8 transition-all ease-linear duration-100" ref={headerRef}>
+    <div className="sticky z-10 top-0 -mx-8 xl:-mx-20 pt-6 pb-4 mb-8 transition-all ease-linear duration-100" ref={headerRef}>
         <div className="w-full max-w-screen-xl mx-auto px-8">
             {props.children}
         </div>
