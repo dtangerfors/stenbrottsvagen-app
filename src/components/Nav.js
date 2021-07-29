@@ -16,7 +16,7 @@ function NavPill(props) {
 
 function Nav() {
   return (
-    <nav className="sticky z-50 bottom-0 flex justify-center self-end w-full">
+    <nav className="fixed z-50 bottom-0 left-0 flex justify-center w-full">
       <NavPill to="/">
         <i className="ri-home-line text-base"></i>Hem
       </NavPill>
@@ -24,13 +24,13 @@ function Nav() {
         <i className="ri-gallery-line text-base"></i>Galleri
       </NavPill>
       <div
-        style={{ width: "120px" }}
+        style={{ width: "80px", marginTop: "-25px" }}
         className="relative bg-menu-bg dark:bg-menu-dark bg-no-repeat bg-center-top bg-cover"
       >
         <NavLink
           exact
           to="/boka"
-          className="flex-1 flex justify-center items-center mx-auto -mt-10 bg-gradient-to-tr from-secondary to-primary w-20 h-20 rounded-full text-base text-white shadow-md transition-all ease-in-out duration-200 transform hover:scale-105"
+          className="flex-1 flex justify-center items-center mx-auto m-2 bg-gradient-to-tr from-secondary to-primary w-20 h-20 rounded-full text-base text-white shadow-md transition-all ease-in-out duration-200 transform hover:scale-105"
           activeClassName="text-primary"
         >
           <i className="ri-add-line text-title1 leading-none"></i>

@@ -83,7 +83,7 @@ export default class App extends Component {
           {this.state.user.userData ? (
             <Router>
               
-                <div className="flex flex-col relative min-h-screen">
+                <div className="flex flex-col relative min-h-screen" style={{paddingBottom: "66px"}}>
                   <Switch>
                     <Route path="/profil">
                       <Profil
