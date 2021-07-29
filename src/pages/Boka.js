@@ -1,11 +1,11 @@
 import React from "react";
 import Form from "../components/Form";
+import Header from "../components/Header";
 
 export default function Boka(props) {
   return (
     <>
-      <header className="px-8 pt-32 pb-20 lg:px-20 flex items-center self-start bg-cover-bg bg-cover bg-center">
-        <div className="grid lg:grid-cols-2 gap-20 w-full max-w-screen-xl mx-auto">
+      <Header>
           <div>
             <h1 className="font-title font-semibold text-heading text-white">
               Lägg in bokning
@@ -17,8 +17,7 @@ export default function Boka(props) {
               bokningen nedan.
             </p>
           </div>
-        </div>
-      </header>
+      </Header>
       <main className="bg-gray-100">
         <section className="sm:py-20 sm:px-8 grid place-items-center justify-self-stretch">
           {props.status ? null : (

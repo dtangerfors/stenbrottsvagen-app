@@ -2,6 +2,7 @@ import React from "react";
 import SimpleReactLightbox, { SRLWrapper } from "simple-react-lightbox";
 import GalleryGrid from "../components/gallery/GalleryGrid";
 import Image from "../components/gallery/Image";
+import Header from "../components/Header";
 
 import galleries from "../image-data.json";
 
@@ -23,15 +24,13 @@ const options = {
 export default function Galleri() {
   return (
     <div className="relative">
-      <header className="px-8 pt-32 pb-20 lg:px-20 flex items-center self-start bg-cover-bg bg-cover bg-center">
-        <div className="grid lg:grid-cols-2 gap-20 w-full max-w-screen-xl mx-auto">
+      <Header>
           <div>
             <h1 className="font-title font-semibold text-heading text-white">
               Galleri
             </h1>
           </div>
-        </div>
-      </header>
+      </Header>
       <main>
         {galleries.galleries.map((gallery, key) => {
           return (
