@@ -17,6 +17,7 @@ function isElementInViewport(el) {
 
 export default function FixedHeader(props) {
   const headerRef = useRef(null);
+  const headingRef = useRef(null);
 
   // scroll event handler
   const handleScroll = () => {
@@ -24,9 +25,9 @@ export default function FixedHeader(props) {
     var elemPositionY = elem.offsetTop - document.documentElement.scrollTop;
 
     if (isElementInViewport(elem) && elemPositionY <= 0) {
-        elem.classList.add('bg-white', 'dark:bg-ultraBlack')
+        elem.classList.add('headerIsSticky')
     } else {
-        elem.classList.remove('bg-white', 'dark:bg-ultraBlack')
+        elem.classList.remove('headerIsSticky')
     } 
   };
 

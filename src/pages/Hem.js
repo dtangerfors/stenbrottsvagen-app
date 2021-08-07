@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import FixedHeader from "../components/FixedHeader";
-import Header from "../components/Header";
 import ViewAllBookings from "../components/ViewAllBookings";
 import Weather from "../components/Weather";
 
@@ -9,52 +8,63 @@ function Hem() {
   return (
     <>
       <div className="relative z-0">
-        <Header>
-          <div>
-            <h1 className="font-title font-semibold text-heading text-white">
-              Stenbrottsvägen 3
-            </h1>
-            <h2 className="text-base text-gray-100 uppercase tracking-wider font-medium mb-8">
-              Bokning och nyttig info för vårat släkthus
-            </h2>
-            <p className="max-w-prose text-base text-gray-100">
-              Välkommen till vår portal på webben för Stenbrottsvägen 3. Här kan
-              du lägga in datum du besöker huset, finna nödvändig information
-              och annat som kan vara bra att veta!
-            </p>
-          </div>
-          <div className="grid gap-8">
-            <NavLink
-              to="/boka"
-              className="relative w-full rounded-sm shadow-xl p-8 bg-white"
-            >
-              <h2 className="font-sans text-base font-medium text-black">
-                <span className="text-secondary">Dags att resa?</span> Lägg in
-                bokning här &rarr;
+        <header className="w-full px-8 pt-32 pb-20 lg:px-20 flex items-center self-start bg-transparent">
+          <div className="grid lg:grid-cols-2 gap-20 w-full max-w-screen-xl mx-auto">
+            <div>
+              <h1 className="font-title font-semibold text-heading text-white">
+                Stenbrottsvägen 3
+              </h1>
+              <h2 className="text-base text-gray-100 uppercase tracking-wider font-medium mb-8">
+                Bokning och nyttig info för vårat släkthus
               </h2>
-            </NavLink>
-            <div className="relative w-full rounded-sm shadow-xl p-8 bg-white">
-              <Weather />
+              <p className="max-w-prose text-base text-gray-100">
+                Välkommen till vår portal på webben för Stenbrottsvägen 3. Här
+                kan du lägga in datum du besöker huset, finna nödvändig
+                information och annat som kan vara bra att veta!
+              </p>
+            </div>
+            <div className="grid gap-8">
+              <NavLink
+                to="/boka"
+                className="relative w-full rounded-sm shadow-xl p-8 bg-white"
+              >
+                <h2 className="font-sans text-base font-medium text-black">
+                  <span className="text-secondary">Dags att resa?</span> Lägg in
+                  bokning här &rarr;
+                </h2>
+              </NavLink>
+              <div className="relative w-full rounded-sm shadow-xl p-8 bg-white">
+                <Weather />
+              </div>
             </div>
           </div>
-        </Header>
+        </header>
         <main className="grid">
           <section className="py-20 px-8 lg:px-20 bg-gray-100 dark:bg-gray-900">
-            <FixedHeader><h2 className="text-black dark:text-white text-title1">Inlagda bokningar</h2></FixedHeader>
+            <FixedHeader>
+              <h2 className="text-black dark:text-white text-title1">
+                Inlagda bokningar
+              </h2>
+            </FixedHeader>
             <div className="w-full max-w-screen-xl mx-auto">
-              
               <div className="w-full grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                 <ViewAllBookings />
               </div>
             </div>
           </section>
           <section className="py-20 px-8 lg:px-20">
-          <FixedHeader><h2 className="text-white dark:text-white text-title1">Bra att veta</h2></FixedHeader>
+            <FixedHeader>
+              <h2 className="text-white dark:text-white text-title1">
+                Bra att veta
+              </h2>
+            </FixedHeader>
             <div className="w-full max-w-screen-xl mx-auto">
               <div className="grid gap-8 lg:grid-cols-3">
                 <div className="rounded-sm shadow-xl pt-8 pb-12 bg-white w-full dark:bg-black">
                   <div className="text-center mb-10">
-                    <h3 className="font-sans text-title2 text-black dark:text-white">Hyra</h3>
+                    <h3 className="font-sans text-title2 text-black dark:text-white">
+                      Hyra
+                    </h3>
                   </div>
                   <table className="relative w-full text-left text-headline text-black dark:text-gray-100">
                     <tbody>
@@ -126,7 +136,9 @@ function Hem() {
                     </h3>
                   </div>
                   <div className="relative px-8 pb-8">
-                    <h4 className="text-headline font-bold dark:text-white">ÅVC Fårösund</h4>
+                    <h4 className="text-headline font-bold dark:text-white">
+                      ÅVC Fårösund
+                    </h4>
                     <p className="text-headline dark:text-gray-100">
                       Förutom vanligt avfall går det även att lämna
                       betalsopsäckar. Grovavfall lämnas mot avgift, 50 kr

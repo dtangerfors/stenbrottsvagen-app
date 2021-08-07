@@ -27,3 +27,26 @@ body {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
+/* Sticky class for headers  */
+
+.headerIsSticky {
+    background-color: #FFF;
+}
+
+.headerIsSticky :is(h1, h2, h3, h4, h5, h6, p) {
+    color: #222;
+    font-size: 1.6rem;
+    transition: all .3s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+
+    .headerIsSticky {
+        background-color: #000;
+    }
+
+    .headerIsSticky :is(h1, h2, h3, h4, h5, h6, p) {
+        color: #FFF;
+    }
+}
