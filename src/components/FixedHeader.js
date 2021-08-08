@@ -17,7 +17,6 @@ function isElementInViewport(el) {
 
 export default function FixedHeader(props) {
   const headerRef = useRef(null);
-  const headingRef = useRef(null);
 
   // scroll event handler
   const handleScroll = () => {

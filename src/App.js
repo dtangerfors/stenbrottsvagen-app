@@ -11,6 +11,7 @@ import Hem from "./pages/Hem.js";
 import Galleri from "./pages/Galleri.js";
 import Complete from "./components/Complete.js";
 import Info from "./pages/Info.js";
+import Popup from "./components/Popup.js";
 
 export default class App extends Component {
   constructor() {
@@ -24,11 +25,14 @@ export default class App extends Component {
         status: false,
         message: "",
       },
+      popupIsOpen: false
     };
 
     this.handleCompleteBooking = this.handleCompleteBooking.bind(this);
     this.login = this.login.bind(this);
     this.logout = this.logout.bind(this);
+    this.openPopup = this.openPopup.bind(this);
+    this.closePopup = this.closePopup.bind(this);
   }
 
   handleCompleteBooking(data) {
@@ -63,6 +67,22 @@ export default class App extends Component {
     });
   }
 
+  openPopup() {
+    this.setState({
+      popupIsOpen: true
+    })
+
+    document.body.style.overflow = 'hidden';
+  }
+
+  closePopup() {
+    this.setState({
+      popupIsOpen: false
+    })
+
+    document.body.style.overflow = null;
+  }
+
   componentDidMount() {
     auth.onAuthStateChanged((user) => {
       if (user) {
@@ -77,26 +97,28 @@ export default class App extends Component {
   }
 
   render() {
+
+    const {user, bookingSuccess, popupIsOpen} = this.state;
     return (
       <>
         <div className="App">
-          {this.state.user.userData ? (
+          {user.userData ? (
             <Router>
               
                 <div className="flex flex-col relative min-h-screen" style={{paddingBottom: "66px"}}>
                   <Switch>
                     <Route path="/profil">
                       <Profil
-                        user={this.state.user}
+                        user={user}
                         logout={this.logout}
                         onBookingComplete={this.handleCompleteBooking}
                       />
                     </Route>
                     <Route path="/boka">
                       <Boka
-                        user={this.state.user}
+                        user={user}
                         onBookingComplete={this.handleCompleteBooking}
-                        status={this.state.bookingSuccess.status}
+                        status={bookingSuccess.status}
                       />
                     </Route>
                     <Route path="/galleri">
@@ -110,15 +132,18 @@ export default class App extends Component {
                     </Route>
                   </Switch>
                 </div>
-              <Nav />
+              <Nav openPopup={this.openPopup} />
             </Router>
           ) : (
             <Login login={this.login} />
           )}
 
-          {this.state.bookingSuccess.status ? (
-            <Complete message={this.state.bookingSuccess.message} />
+          {bookingSuccess.status ? (
+            <Complete message={bookingSuccess.message} />
           ) : null}
+
+          <Popup popupIsOpen={popupIsOpen} closePopup={this.closePopup} user={user}
+                        onBookingComplete={this.handleCompleteBooking} />
         </div>
       </>
     );

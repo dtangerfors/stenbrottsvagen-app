@@ -312,6 +312,8 @@ export default class Form extends Component {
       status: true
     });
 
+    this.props.closePopup();
+
     setTimeout(() => {
       this.props.onBookingComplete({
         message: '',
