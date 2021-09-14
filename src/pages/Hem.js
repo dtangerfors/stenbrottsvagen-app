@@ -4,7 +4,7 @@ import FixedHeader from "../components/FixedHeader";
 import ViewAllBookings from "../components/ViewAllBookings";
 import Weather from "../components/Weather";
 
-function Hem() {
+function Hem({openPopup}) {
   return (
     <>
       <div className="relative z-0">
@@ -24,15 +24,15 @@ function Hem() {
               </p>
             </div>
             <div className="grid gap-8">
-              <NavLink
-                to="/boka"
+              <button
+                onClick={openPopup}
                 className="relative w-full rounded-sm shadow-xl p-8 bg-white"
               >
                 <h2 className="font-sans text-base font-medium text-black">
                   <span className="text-secondary">Dags att resa?</span> Lägg in
                   bokning här &rarr;
                 </h2>
-              </NavLink>
+              </button>
               <div className="relative w-full rounded-sm shadow-xl p-8 bg-white">
                 <Weather />
               </div>
