@@ -128,7 +128,7 @@ export default class App extends Component {
                       <Info />
                     </Route>
                     <Route path="/">
-                      <Hem />
+                      <Hem openPopup={this.openPopup} />
                     </Route>
                   </Switch>
                 </div>
