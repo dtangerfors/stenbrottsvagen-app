@@ -51,7 +51,7 @@ body {
 }
 
 /* PWA CODE  */
-
+/* 
 @media only screen and (max-width: 991px) and (hover: none) {
   * {
     -webkit-tap-highlight-color: transparent;
@@ -64,4 +64,4 @@ body {
   *::-webkit-scrollbar {
     width: 0px;
   }
-}
+} */
