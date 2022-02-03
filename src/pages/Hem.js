@@ -1,5 +1,4 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import FixedHeader from "../components/FixedHeader";
 import ViewAllBookings from "../components/ViewAllBookings";
 import Weather from "../components/Weather";
@@ -41,24 +40,20 @@ function Hem({openPopup}) {
         </header>
         <main className="grid">
           <section className="py-20 px-8 lg:px-20 bg-gray-100 dark:bg-gray-900">
-            <FixedHeader>
-              <h2 className="text-black dark:text-white text-title1">
+            <div className="w-full max-w-screen-xl mx-auto">
+            <h2 className="text-black dark:text-white text-title1 pb-4">
                 Inlagda bokningar
               </h2>
-            </FixedHeader>
-            <div className="w-full max-w-screen-xl mx-auto">
               <div className="w-full grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                 <ViewAllBookings />
               </div>
             </div>
           </section>
           <section className="py-20 px-8 lg:px-20">
-            <FixedHeader>
-              <h2 className="text-white dark:text-white text-title1">
+            <div className="w-full max-w-screen-xl mx-auto">
+            <h2 className="text-white dark:text-white text-title1 pb-4">
                 Bra att veta
               </h2>
-            </FixedHeader>
-            <div className="w-full max-w-screen-xl mx-auto">
               <div className="grid gap-8 lg:grid-cols-3">
                 <div className="rounded-sm shadow-xl pt-8 pb-12 bg-white w-full dark:bg-black">
                   <div className="text-center mb-10">
@@ -97,7 +92,7 @@ function Hem({openPopup}) {
                       <tr className="text-gray-600 dark:text-gray-100">
                         <td colSpan="3" className="pt-8 px-8">
                           Uthyrning för vecka 3500:- Pengarna insättes på konto:
-                          5385 015 163-8, senast samma år.
+                          5217&nbsp;167&nbsp;0357&nbsp;77 (SEB), senast samma år.
                         </td>
                       </tr>
                     </tbody>
