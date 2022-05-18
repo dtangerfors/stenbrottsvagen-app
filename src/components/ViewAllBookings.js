@@ -49,7 +49,7 @@ function ViewAllBookings(props) {
     if (!bookings || bookings.every(noFutureBookings)) {
       return <p className="text-base text-gray-700">Just nu finns inga bokningar inlagda</p>;
     } else {
-      return sortedBookings.map((booking, index) => (
+      return sortedBookings.filter(booking => Date.parse(booking.bookingDeparture) >= Date.now()).map((booking, index) => (
         <Card key={index} booking={booking} />
       ));
     }
