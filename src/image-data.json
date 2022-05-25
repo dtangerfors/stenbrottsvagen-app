@@ -1,0 +1,39 @@
+{
+    "galleries": [
+        {
+            "id": "bilder-fran-forr",
+            "name": "Bilder från förr",
+            "images": [
+                "/gallery/gotland-arkiv-1.jpg",
+                "/gallery/gotland-arkiv-2.jpg",
+                "/gallery/gotland-arkiv-3.jpg"
+            ]
+        },
+        {
+            "id": "hakans-byggbilder",
+            "name": "Håkans Byggbilder",
+            "images": [
+                "/gallery/gotland-bygg-1.jpg",
+                "/gallery/gotland-bygg-2.jpg",
+                "/gallery/gotland-bygg-3.jpg",
+                "/gallery/gotland-bygg-4.jpg",
+                "/gallery/gotland-bygg-5.jpg",
+                "/gallery/gotland-bygg-6.jpg",
+                "/gallery/gotland-bygg-7.jpg",
+                "/gallery/gotland-bygg-8.jpg",
+                "/gallery/gotland-bygg-9.jpg",
+                "/gallery/gotland-bygg-10.jpg",
+                "/gallery/gotland-bygg-11.jpg",
+                "/gallery/gotland-bygg-12.jpg",
+                "/gallery/gotland-bygg-13.jpg",
+                "/gallery/gotland-bygg-14.jpg",
+                "/gallery/gotland-bygg-15.jpg",
+                "/gallery/gotland-bygg-16.jpg",
+                "/gallery/gotland-bygg-17.jpg",
+                "/gallery/gotland-bygg-18.jpg",
+                "/gallery/gotland-bygg-19.jpg",
+                "/gallery/gotland-bygg-20.jpg"
+            ]
+        }
+    ]
+}
