@@ -7,7 +7,7 @@ function Hem({openPopup}) {
   return (
     <>
       <div className="relative z-0">
-        <header className="w-full px-8 pt-32 pb-20 lg:px-20 flex items-center self-start bg-transparent">
+        <header className="w-full px-8 pt-32 pb-20 lg:px-20 lg:min-h-screen flex items-center self-start bg-transparent">
           <div className="grid lg:grid-cols-2 gap-20 w-full max-w-screen-xl mx-auto">
             <div>
               <h1 className="font-title font-semibold text-heading text-white">
