@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Switch, Route, HashRouter as Router } from "react-router-dom";
+import { BrowserView, MobileView } from "react-device-detect";
 import "remixicon/fonts/remixicon.css";
 
 import { auth, provider } from "./firebase.js";
@@ -12,6 +13,7 @@ import Galleri from "./pages/Galleri.js";
 import Complete from "./components/Complete.js";
 import Info from "./pages/Info.js";
 import Popup from "./components/Popup.js";
+import DesktopHeader from "./components/DesktopHeader.js";
 
 export default class App extends Component {
   constructor() {
@@ -25,7 +27,7 @@ export default class App extends Component {
         status: false,
         message: "",
       },
-      popupIsOpen: false
+      popupIsOpen: false,
     };
 
     this.handleCompleteBooking = this.handleCompleteBooking.bind(this);
@@ -69,16 +71,16 @@ export default class App extends Component {
 
   openPopup() {
     this.setState({
-      popupIsOpen: true
-    })
+      popupIsOpen: true,
+    });
 
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
   }
 
   closePopup() {
     this.setState({
-      popupIsOpen: false
-    })
+      popupIsOpen: false,
+    });
 
     document.body.style.overflow = null;
   }
@@ -97,42 +99,48 @@ export default class App extends Component {
   }
 
   render() {
-
-    const {user, bookingSuccess, popupIsOpen} = this.state;
+    const { user, bookingSuccess, popupIsOpen } = this.state;
     return (
       <>
         <div className="App">
           {user.userData ? (
             <Router>
-              
-                <div className="flex flex-col relative min-h-screen" style={{paddingBottom: "66px"}}>
-                  <Switch>
-                    <Route path="/profil">
-                      <Profil
-                        user={user}
-                        logout={this.logout}
-                        onBookingComplete={this.handleCompleteBooking}
-                      />
-                    </Route>
-                    <Route path="/boka">
-                      <Boka
-                        user={user}
-                        onBookingComplete={this.handleCompleteBooking}
-                        status={bookingSuccess.status}
-                      />
-                    </Route>
-                    <Route path="/galleri">
-                      <Galleri />
-                    </Route>
-                    <Route path="/info">
-                      <Info />
-                    </Route>
-                    <Route path="/">
-                      <Hem openPopup={this.openPopup} />
-                    </Route>
-                  </Switch>
-                </div>
+              <BrowserView className="sticky z-10 top-0">
+                <DesktopHeader openPopup={this.openPopup}/>
+              </BrowserView>
+              <div
+                className="flex flex-col relative min-h-screen"
+                style={{ paddingBottom: "66px" }}
+              >
+                <Switch>
+                  <Route path="/profil">
+                    <Profil
+                      user={user}
+                      logout={this.logout}
+                      onBookingComplete={this.handleCompleteBooking}
+                    />
+                  </Route>
+                  <Route path="/boka">
+                    <Boka
+                      user={user}
+                      onBookingComplete={this.handleCompleteBooking}
+                      status={bookingSuccess.status}
+                    />
+                  </Route>
+                  <Route path="/galleri">
+                    <Galleri />
+                  </Route>
+                  <Route path="/info">
+                    <Info />
+                  </Route>
+                  <Route path="/">
+                    <Hem openPopup={this.openPopup} />
+                  </Route>
+                </Switch>
+              </div>
+              <MobileView>
               <Nav openPopup={this.openPopup} />
+              </MobileView>
             </Router>
           ) : (
             <Login login={this.login} />
@@ -142,8 +150,12 @@ export default class App extends Component {
             <Complete message={bookingSuccess.message} />
           ) : null}
 
-          <Popup popupIsOpen={popupIsOpen} closePopup={this.closePopup} user={user}
-                        onBookingComplete={this.handleCompleteBooking} />
+          <Popup
+            popupIsOpen={popupIsOpen}
+            closePopup={this.closePopup}
+            user={user}
+            onBookingComplete={this.handleCompleteBooking}
+          />
         </div>
       </>
     );
