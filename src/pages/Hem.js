@@ -1,5 +1,4 @@
 import React from "react";
-import FixedHeader from "../components/FixedHeader";
 import ViewAllBookings from "../components/ViewAllBookings";
 import Weather from "../components/Weather";
 
