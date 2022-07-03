@@ -1,60 +1,61 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react";
+import { onValue } from "firebase/database";
 import bookingDB from "../bookingDb";
 import Card from "./CardUpdated";
 
 function ViewAllBookings(props) {
-    const [bookings, setBookings] = useState([]);
+  const [bookings, setBookings] = useState([]);
 
-    const onDataChange = (users) => {
-      let bookings = [];
-  
-      users.forEach((user) => {
-        user.forEach((bookingItem) => {
-          let key = bookingItem.key;
-          let data = bookingItem.val();
-          bookings.push({
-            key: key,
-            bookingName: data.bookingName,
-            bookingGuests: data.bookingGuests,
-            bookingArrival: data.bookingArrival,
-            bookingDeparture: data.bookingDeparture,
-            bookingMessage: data.bookingMessage,
-            rooms: data.rooms,
-            bookingUserID: data.bookingUserID,
-          });
+  const onDataChange = (data) => {
+    const users = data;
+    let bookings = [];
+
+    for (const userData in users) {
+      const bookingData = users[userData];
+      for (const data in bookingData) {
+        bookings.push({
+          key: data,
+          ...bookingData[data]
         })
-        
-      });
-  
-      setBookings(bookings);
-    };
-  
-    useEffect(() => {
-      bookingDB.getAll().on("value", onDataChange);
-  
-      return () => {
-        bookingDB.getAll().off("value", onDataChange);
-      };
-    }, []);
-  
-    const sortedBookings = bookings.sort(function (a, b) {
-      var dateA = new Date(a.bookingArrival),
-        dateB = new Date(b.bookingArrival);
-      return dateA - dateB;
+      }
+    }
+    setBookings(bookings);
+  };
+
+  useEffect(() => {
+    onValue(bookingDB.getAllBookings(), (snapshot) => {
+      const data = snapshot.val();
+      onDataChange(data);
     });
 
-    const noFutureBookings = (booking) =>
-      Date.parse(booking.bookingDeparture) <= Date.now();
+    return () => {
+      onValue(bookingDB.getAllBookings(), (snapshot) => {
+        const data = snapshot.val();
+        onDataChange(data);
+      });
+    };
+  }, []);
 
-    if (!bookings || bookings.every(noFutureBookings)) {
-      return <p className="text-base text-gray-700">Just nu finns inga bokningar inlagda</p>;
-    } else {
-      return sortedBookings.filter(booking => Date.parse(booking.bookingDeparture) >= Date.now()).map((booking, index) => (
-        <Card key={index} booking={booking} />
-      ));
-    }
+  const sortedBookings = bookings.sort(function (a, b) {
+    var dateA = new Date(a.bookingArrival),
+      dateB = new Date(b.bookingArrival);
+    return dateA - dateB;
+  });
 
-    
+  const noFutureBookings = (booking) =>
+    Date.parse(booking.bookingDeparture) <= Date.now();
+
+  if (!bookings || bookings.every(noFutureBookings)) {
+    return (
+      <p className="text-base text-gray-700">
+        Just nu finns inga bokningar inlagda
+      </p>
+    );
+  } else {
+    return sortedBookings
+      .filter((booking) => Date.parse(booking.bookingDeparture) >= Date.now())
+      .map((booking, index) => <Card key={index} booking={booking} />);
+  }
 }
 
-export default ViewAllBookings
+export default ViewAllBookings;
