@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-import bookingDB from "../bookingDb";
+import bookingDB from "../firebase/bookingDb";
 
 const FormPart = styled.form`
   display: flex;
@@ -245,10 +245,13 @@ export default class Form extends Component {
       roomStensbo: false,
       roomThomas: false,
       roomVarat: false,
+      createdAt: null,
+      updatedAt: null,
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.setTimeStamp = this.setTimeStamp.bind(this);
   }
 
   componentDidMount() {
@@ -260,8 +263,12 @@ export default class Form extends Component {
         bookingDeparture: this.props.booking.bookingDeparture,
         bookingUserID: this.props.booking.bookingUserID,
         bookingMessage: this.props.booking.bookingMessage,
+        createdAt: this.props.booking.createdAt,
+        updatedAt: this.props.booking.updatedAt,
       });
     }
+
+    this.setTimeStamp();
   }
 
   handleInputChange(event) {
@@ -273,6 +280,21 @@ export default class Form extends Component {
       [name]: value,
       bookingUserID: this.props.user.userData.uid || null,
     });
+  }
+
+  setTimeStamp() {
+
+    if (this.state.createdAt !== Date.now()) {
+      this.setState({
+        updatedAt: Date.now()
+      })
+    } else {
+      this.setState({
+        createdAt: Date.now(),
+        updatedAt: Date.now()
+      })
+    }
+    
   }
 
   addRoomsToArray() {
@@ -287,7 +309,7 @@ export default class Form extends Component {
   }
 
   updateBooking(booking) {
-    bookingDB.update(this.props.booking.key, booking, this.state.bookingUserID);
+    bookingDB.updateBooking(this.props.booking.key, booking, this.state.bookingUserID);
 
     this.props.onBookingComplete({
       message: 'Bokning uppdaterad',
@@ -305,7 +327,7 @@ export default class Form extends Component {
   } 
 
   createBooking(booking) {
-    bookingDB.create(booking, this.state.bookingUserID);
+    bookingDB.createBooking(booking, this.state.bookingUserID);
 
     this.props.onBookingComplete({
       message: 'Bokning inlagd',
@@ -331,6 +353,8 @@ export default class Form extends Component {
       bookingDeparture,
       bookingMessage,
       bookingUserID,
+      updatedAt,
+      createdAt
     } = this.state;
 
     const booking = {
@@ -340,6 +364,8 @@ export default class Form extends Component {
       bookingDeparture: bookingDeparture,
       bookingMessage: bookingMessage,
       bookingUserID: bookingUserID,
+      createdAt: createdAt,
+      updatedAt: updatedAt,
       rooms: this.addRoomsToArray(),
     };
 
