@@ -4,7 +4,7 @@ import { BrowserView, MobileView } from "react-device-detect";
 import { signInWithPopup } from "firebase/auth";
 import "remixicon/fonts/remixicon.css";
 
-import { auth, provider } from "./firebase.js";
+import { auth, provider } from "./firebase";
 import Login from "./components/Login";
 import Nav from "./components/Nav.js";
 import Profil from "./pages/Profil.js";
