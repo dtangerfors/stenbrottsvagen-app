@@ -1,19 +1,25 @@
-import firebase from "firebase";
+import { initializeApp } from "firebase/app";
+import {GoogleAuthProvider, getAuth} from "firebase/auth"
+import { getAnalytics } from "firebase/analytics";
+import { getDatabase} from "firebase/database";
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_FIREBASE_APP_ID,
-  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
+  apiKey: "AIzaSyB_egw543eOkjizxBG2adEMgDe9ATvuMW0",
+  authDomain: "stenbrottsvagen-e88eb.firebaseapp.com",
+  databaseURL: "https://stenbrottsvagen-e88eb-default-rtdb.firebaseio.com",
+  projectId: "stenbrottsvagen-e88eb",
+  storageBucket: "stenbrottsvagen-e88eb.appspot.com",
+  messagingSenderId: "220547020978",
+  appId: "1:220547020978:web:57314018fc4dfd12c431ab",
+  measurementId: "G-0E45XDSGEE"
 };
 
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-firebase.analytics();
+const firebaseApp = initializeApp(firebaseConfig);
+const analytics = getAnalytics(firebaseApp);
 
-export const provider = new firebase.auth.GoogleAuthProvider();
-export const auth = firebase.auth();
-export default firebase;
+const firebaseDB = getDatabase(firebaseApp);
+const provider = new GoogleAuthProvider();
+const auth = getAuth();
+
+export {firebaseDB, provider, auth, analytics}

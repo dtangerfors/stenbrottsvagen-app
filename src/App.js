@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Switch, Route, HashRouter as Router } from "react-router-dom";
 import { BrowserView, MobileView } from "react-device-detect";
+import { signInWithPopup } from "firebase/auth";
 import "remixicon/fonts/remixicon.css";
 
 import { auth, provider } from "./firebase.js";
@@ -47,7 +48,7 @@ export default class App extends Component {
   }
 
   login() {
-    auth.signInWithPopup(provider).then((result) => {
+    signInWithPopup(auth, provider).then((result) => {
       const user = result.user;
       this.setState({
         user: {
@@ -56,6 +57,7 @@ export default class App extends Component {
         },
       });
     });
+
   }
 
   logout() {
