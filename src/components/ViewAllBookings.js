@@ -1,40 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { onValue } from "firebase/database";
-import bookingDB from "../bookingDb";
+import bookingDB from "../firebase/bookingDb";
 import Card from "./CardUpdated";
+import { onDataChange } from "../firebase/index";
 
 function ViewAllBookings(props) {
   const [bookings, setBookings] = useState([]);
 
-  const onDataChange = (data) => {
-    const users = data;
-    let bookings = [];
-
-    for (const userData in users) {
-      const bookingData = users[userData];
-      for (const data in bookingData) {
-        bookings.push({
-          key: data,
-          ...bookingData[data]
-        })
-      }
-    }
-    setBookings(bookings);
-  };
-
   useEffect(() => {
     onValue(bookingDB.getAllBookings(), (snapshot) => {
       const data = snapshot.val();
-      onDataChange(data);
+      onDataChange(data, setBookings);
     });
 
     return () => {
       onValue(bookingDB.getAllBookings(), (snapshot) => {
         const data = snapshot.val();
-        onDataChange(data);
+        onDataChange(data, setBookings);
       });
     };
-  }, []);
+  },[]);
 
   const sortedBookings = bookings.sort(function (a, b) {
     var dateA = new Date(a.bookingArrival),

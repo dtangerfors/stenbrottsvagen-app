@@ -20,6 +20,8 @@ function ViewEditBooking(props) {
       bookingMessage: booking.bookingMessage,
       rooms: booking.rooms,
       bookingUserID: booking.bookingUserID,
+      updatedAt: booking.updatedAt,
+      createdAt: booking.createdAt,
     });
 
     console.log(`Current bookingKey is: ${booking.key}`);
