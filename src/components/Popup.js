@@ -2,6 +2,7 @@ import React from "react";
 import Form from "./Form";
 import Overlay from "./Overlay";
 import { motion, AnimatePresence } from "framer-motion";
+import BookingForm from "./booking_form";
 
 const variants = {
   visible: { y: 0, x: "-50%", opacity: 1 },
@@ -48,7 +49,8 @@ export default function Popup({
                 bokningen nedan.
               </p>
             </div>
-            <Form onBookingComplete={onBookingComplete} user={user} closePopup={closePopup}/>
+            <BookingForm key="booking-form" userID={user.userData.uid} onBookingComplete={onBookingComplete} closePopup={closePopup}/>
+            {/* <Form onBookingComplete={onBookingComplete} user={user} closePopup={closePopup}/> */}
           </div>
         </motion.div>
         <Overlay key="overlay" popupForm={popupForm} />
