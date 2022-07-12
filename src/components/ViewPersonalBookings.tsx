@@ -36,7 +36,7 @@ function ViewPersonalBookings(props: any) {
   }, [props.userID]);
 
   return bookings.map((booking: any, index: number) => (
-    <PersonalBookingCard key={index} booking={booking} setActiveBooking={props.setActiveBooking}/>
+    <PersonalBookingCard key={index} booking={booking} isUpdatingBooking={props.isUpdatingBooking}/>
   ));
 }
 
