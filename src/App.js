@@ -28,7 +28,11 @@ export default class App extends Component {
         status: false,
         message: "",
       },
-      popupIsOpen: false,
+      popupForm: {
+        isOpen: false,
+        isUpdatingBooking: false,
+        bookingKey: '',
+      },
     };
 
     this.handleCompleteBooking = this.handleCompleteBooking.bind(this);
@@ -36,6 +40,7 @@ export default class App extends Component {
     this.logout = this.logout.bind(this);
     this.openPopup = this.openPopup.bind(this);
     this.closePopup = this.closePopup.bind(this);
+    this.editBooking = this.editBooking.bind(this);
   }
 
   handleCompleteBooking(data) {
@@ -73,7 +78,21 @@ export default class App extends Component {
 
   openPopup() {
     this.setState({
-      popupIsOpen: true,
+      popupForm: {
+        isOpen: true,
+      }
+    });
+
+    document.body.style.overflow = "hidden";
+  }
+
+  editBooking(key) {
+    this.setState({
+      popupForm: {
+        isOpen: true,
+        isUpdatingBooking: true,
+        bookingKey: key
+      }
     });
 
     document.body.style.overflow = "hidden";
@@ -81,7 +100,11 @@ export default class App extends Component {
 
   closePopup() {
     this.setState({
-      popupIsOpen: false,
+      popupForm: {
+        isOpen: false,
+        isUpdatingBooking: false,
+        bookingKey: '',
+      }
     });
 
     document.body.style.overflow = null;
@@ -101,7 +124,7 @@ export default class App extends Component {
   }
 
   render() {
-    const { user, bookingSuccess, popupIsOpen } = this.state;
+    const { user, bookingSuccess, popupForm } = this.state;
     return (
       <>
         <div className="App">
@@ -120,6 +143,7 @@ export default class App extends Component {
                       user={user}
                       logout={this.logout}
                       onBookingComplete={this.handleCompleteBooking}
+                      isUpdatingBooking={this.editBooking}
                     />
                   </Route>
                   <Route path="/boka">
@@ -153,7 +177,7 @@ export default class App extends Component {
           ) : null}
 
           <Popup
-            popupIsOpen={popupIsOpen}
+            popupForm={popupForm}
             closePopup={this.closePopup}
             user={user}
             onBookingComplete={this.handleCompleteBooking}
