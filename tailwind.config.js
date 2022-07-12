@@ -1,6 +1,7 @@
 const colors = require('tailwindcss/colors');
 
 module.exports = {
+  mode: 'jit',
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: 'media', // or 'media' or 'class'
   theme: {
@@ -17,6 +18,7 @@ module.exports = {
       'heading': '3.3rem',
       'title1': '2.8rem',
       'title2': '2.3rem',
+      'default': '16px'
     },
     colors: {
       transparent: 'transparent',
@@ -36,10 +38,11 @@ module.exports = {
        }),
        colors: {
         primary: '#5cdb95',
-        primaryLight: '#E1F4F0',
+        primaryLight: '#e9f9e6',
         secondary: '#379683',
         black: '#222',
         ultraBlack: '#000',
+        red: "#db605c"
        },
        scale: {
          '101': '1.01'
@@ -73,6 +76,8 @@ module.exports = {
       margin: ['last', 'first'],
       flexShrink: ['last'],
       backgroundImage: ['dark'],
+      colors: ['disabled', 'checked'],
+      backgroundColor: ['checked']
     },
   },
   plugins: [],

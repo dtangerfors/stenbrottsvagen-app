@@ -10,14 +10,14 @@ const variants = {
 };
 
 export default function Popup({
-  popupIsOpen,
+  popupForm,
   closePopup,
   onBookingComplete,
   user,
 }) {
   return (
     <AnimatePresence>
-      {popupIsOpen && (
+      {popupForm.isOpen && (
         <>
         <motion.div
           key="modal"
@@ -53,7 +53,7 @@ export default function Popup({
             {/* <Form onBookingComplete={onBookingComplete} user={user} closePopup={closePopup}/> */}
           </div>
         </motion.div>
-        <Overlay key="overlay" popupIsOpen={popupIsOpen} />
+        <Overlay key="overlay" popupForm={popupForm} />
         </>
       )}
     </AnimatePresence>

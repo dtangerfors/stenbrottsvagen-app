@@ -20,7 +20,7 @@ const PersonalBookingCard = (props: any) => {
       </div>
       <div className="flex">
         <TaskButton
-          onClick={() => props.setActiveBooking(props.booking)}
+          onClick={() => props.isUpdatingBooking(key)}
           actionText={"Redigera Bokning"}
           icon={"pencil"}
         />

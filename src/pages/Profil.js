@@ -1,8 +1,23 @@
-import React from "react";
+import React, {useState} from "react";
 import { PrimaryButton } from "../components/buttons";
-import ViewEditBooking from "../components/ViewEditBooking";
+import ViewPersonalBookings from "../components/ViewPersonalBookings";
 
 function Profil(props) {
+
+  const [currentBooking, setCurrentBooking] = useState(null);
+
+  const refreshList = () => {
+    setCurrentBooking(null);
+  };
+
+  const setActiveBooking = (key) => {
+    setCurrentBooking({
+      key: key,
+    });
+
+    console.log(`Current bookingKey is: ${key}`);
+  };
+
   const lastSignInTime = new Date(
     props.user.userData.metadata.lastSignInTime
   ).toLocaleString("sv-SE", {
@@ -45,10 +60,24 @@ function Profil(props) {
           ) : null}
       </header>
       <main className="grid py-20 pb-32 px-8 lg:px-20 bg-gray-100 flex-1 dark:bg-gray-900">
-        <ViewEditBooking
-          user={props.user}
-          onBookingComplete={props.onBookingComplete}
-        />
+      <section className="grid lg:grid-cols-2 min-w-full gap-8">
+      <div>
+        <div className="mb-12">
+          <h2 className="text-title1 text-black dark:text-white">Mina bokningar</h2>
+          <p className="text-base text-gray-700 dark:text-gray-300">
+            Här visas alla dina kommande och tidigare bokningar
+          </p>
+        </div>
+        <div className="flex flex-col">
+          <ViewPersonalBookings
+            userID={props.user.userData.uid}
+            bookings={props.user.bookings}
+            setActiveBooking={setActiveBooking}
+            isUpdatingBooking={props.isUpdatingBooking}
+          />
+        </div>
+      </div>
+    </section>
       </main>
     </>
   );
