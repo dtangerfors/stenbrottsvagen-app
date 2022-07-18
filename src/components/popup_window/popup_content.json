@@ -1,0 +1,12 @@
+{"data": {
+   "isNew": {
+      "title": "Lägg in bokning",
+      "message": "Skriv in bokande person, antal gäster, incheckning, utcheckning och vilka rum/stugor du kommer använda. Allmänna utrymmen i huset är till för alla, och behöver därför inte vara med i bokningen nedan.",
+      "button": "Skapa bokning"
+   },
+   "isUpdating" : {
+      "title": "Uppdatera bokning",
+      "message": "Här nedan kan du uppdatera din bokning.",
+      "button": "Uppdatera bokning"
+   }
+}}

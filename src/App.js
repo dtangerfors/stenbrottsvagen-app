@@ -13,7 +13,7 @@ import Hem from "./pages/Hem.js";
 import Galleri from "./pages/Galleri.js";
 import Complete from "./components/Complete.js";
 import Info from "./pages/Info.js";
-import Popup from "./components/Popup.js";
+import Popup from "./components/popup_window";
 import DesktopHeader from "./components/DesktopHeader.js";
 
 export default class App extends Component {

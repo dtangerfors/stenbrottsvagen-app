@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-export default function Overlay({ popupIsOpen }) {
+export default function Overlay() {
   return (
     <motion.div
       animate={{

@@ -1,20 +1,26 @@
-import React from "react";
-import Form from "./Form";
-import Overlay from "./Overlay";
+import React, {useEffect, useState} from "react";
+import Overlay from "../Overlay";
 import { motion, AnimatePresence } from "framer-motion";
-import BookingForm from "./booking_form";
+import BookingForm from "../booking_form";
+import FormContent from "./popup_content.json"
 
 const variants = {
   visible: { y: 0, x: "-50%", opacity: 1 },
   hidden: { y: 100, x: "-50%", opacity: 0 },
 };
 
-export default function Popup({
-  popupForm,
-  closePopup,
-  onBookingComplete,
-  user,
-}) {
+const Popup = (props) => {
+  const {popupForm, user, onBookingComplete, closePopup} = props;
+  const [popupData, setPopupData] = useState();
+
+  useEffect(() => {
+    if (popupForm.isUpdatingBooking) {
+      setPopupData(FormContent.data.isUpdating)
+    } else {
+      setPopupData(FormContent.data.isNew)
+    }
+  })
+
   return (
     <AnimatePresence>
       {popupForm.isOpen && (
@@ -30,7 +36,7 @@ export default function Popup({
         >
           <header className="sticky top-0 flex justify-between items-center w-full p-8 py-6 bg-white border-gray-200 border-b">
             <h2 className="font-title font-semibold text-heading text-black leading-none">
-              Lägg in bokning
+              {popupData.title}
             </h2>
             <button
               onClick={closePopup}
@@ -43,19 +49,17 @@ export default function Popup({
           <div className="w-full p-8 pb-safeBottom">
             <div className="pb-4 mb-8 border-gray-200 border-b">
               <p className="max-w-prose text-base text-gray-700">
-                Skriv in bokande person, antal gäster, incheckning, utcheckning
-                och vilka rum/stugor du kommer använda. Allmänna utrymmen i
-                huset är till för alla, och behöver därför inte vara med i
-                bokningen nedan.
+                {popupData.message}
               </p>
             </div>
-            <BookingForm key="booking-form" userID={user.userData.uid} onBookingComplete={onBookingComplete} popupForm={popupForm} closePopup={closePopup}/>
-            {/* <Form onBookingComplete={onBookingComplete} user={user} closePopup={closePopup}/> */}
+            <BookingForm key="booking-form" userID={user.userData.uid} onBookingComplete={onBookingComplete} popupForm={popupForm} closePopup={closePopup} buttonText={popupData.button}/>
           </div>
         </motion.div>
-        <Overlay key="overlay" popupForm={popupForm} />
+        <Overlay key="overlay" />
         </>
       )}
     </AnimatePresence>
   );
 }
+
+export default Popup

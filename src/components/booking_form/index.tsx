@@ -214,7 +214,7 @@ const BookingForm = (props: any) => {
         <FormPart>
           <SubmitButton
             name="Submit"
-            value={props.isBeingChanged ? "Uppdatera bokning" : "Skapa bokning"}
+            value={props.buttonText}
           />
         </FormPart>
       </Form>
