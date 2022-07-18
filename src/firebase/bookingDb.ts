@@ -9,6 +9,10 @@ const getUserBookings = (userID: string) => {
   return ref(firebaseDB, "/bookings/" + userID);
 };
 
+const getBooking = (userID: string, key: string) => {
+  return ref(firebaseDB, `/bookings/${userID}/${key}`);
+};
+
 const createBooking = (data: Object, userID: string) => {
   console.log(data)
   const previousBookingsRef = ref(firebaseDB, '/bookings/' + userID);
@@ -29,6 +33,7 @@ const removeBooking = (key: string, userID: string) => {
 };
 
 const bookingDb = {
+  getBooking,
   getAllBookings,
   getUserBookings,
   createBooking,
