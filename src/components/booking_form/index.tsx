@@ -1,6 +1,8 @@
-import React from "react";
-import { useForm } from 'react-hook-form';
+import React, { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { onValue } from "firebase/database";
 import bookingDb from "../../firebase/bookingDb";
+import { DevTool } from "@hookform/devtools";
 import {
   Form,
   FormPart,
@@ -14,7 +16,7 @@ import {
   FormError,
 } from "./form_items";
 
-import rooms from "./rooms.json"
+import rooms from "./rooms.json";
 
 type BookingData = {
   bookingName: string;
@@ -26,11 +28,43 @@ type BookingData = {
   rooms: any[];
   createdAt: number;
   updatedAt: number;
-}
+};
 
 const BookingForm = (props: any) => {
-  const { register, handleSubmit, formState: { errors } } = useForm<BookingData>();
-  const onSubmit = handleSubmit((data) => {
+  const {isUpdatingBooking, bookingKey} = props.popupForm;
+  const [booking, setBooking] = useState<any>({});
+  const {register, handleSubmit, formState: { errors }, control, reset} = useForm<BookingData>();
+
+  const onSubmit = handleSubmit((data) => {    
+    isUpdatingBooking ? updateBooking(data) : createBooking(data);
+  });
+
+  useEffect(() => {
+    if (isUpdatingBooking) {
+      let data: BookingData;
+
+      onValue(
+        bookingDb.getBooking(props.userID, bookingKey),
+        (snapshot) => {
+          data = snapshot.val();
+
+          // Convert rooms Array back to original values
+          data.rooms.forEach((room:string, index:number, array:any[]) => {
+            array[index] = `${room[0]},${room[1]}`
+          })
+          setBooking(data);
+        }
+      );
+    }
+  }, [props.popupForm]);
+
+  useEffect(() => {
+    if (isUpdatingBooking) {
+      reset(booking);
+    }
+  }, [booking]);
+
+  const createBooking = (data: BookingData) => {
     // Set booking user ID
     data.bookingUserID = props.userID;
 
@@ -40,104 +74,152 @@ const BookingForm = (props: any) => {
 
     // Transform strings in rooms to array
     data.rooms.forEach((room, index, array) => {
-      array[index] = room.split(',')
-    })
+      array[index] = room.split(",");
+    });
 
-    createBooking(data);
-  });
-
-  const createBooking = (data: BookingData) => {
+    // Send booking to Firebase Database
     bookingDb.createBooking(data, props.userID);
+
+    // Show notfication
     props.onBookingComplete({
-      message: 'Bokning inlagd',
-      status: true
+      message: "Bokning inlagd",
+      status: true,
     });
 
     props.closePopup();
 
     setTimeout(() => {
       props.onBookingComplete({
-        message: '',
-        status: false
+        message: "",
+        status: false,
+      });
+    }, 3000);
+  };
+
+  const updateBooking = (data: BookingData) => {
+    // Set booking user ID
+    data.bookingUserID = props.userID;
+
+    // Add timestamp to booking
+    data.updatedAt = Date.now();
+
+    // Transform strings in rooms to array
+    data.rooms.forEach((room, index, array) => {
+      array[index] = room.split(",");
+    });
+
+    // Send booking to Firebase Database
+    bookingDb.updateBooking(bookingKey, data, props.userID)
+
+    // Show notfication
+    props.onBookingComplete({
+      message: "Bokning uppdaterad",
+      status: true,
+    });
+
+    props.closePopup();
+
+    setTimeout(() => {
+      props.onBookingComplete({
+        message: "",
+        status: false,
       });
     }, 3000);
   }
 
   return (
-    <Form id="booking_form" name="bookingReservation" onSubmit={onSubmit}>
-      <FormPart>
-        <Label text="Person som bokar" htmlFor="bookingName" />
-        <Input id="bookingName" type="text" placeholder="Namn" register={register("bookingName", { required: true })}/>
-        {errors.bookingName && <FormError message="Vänligen fyll i för- och efternamn"/>}
-      </FormPart>
-      <FormPart>
-        <Label text="Gäster" htmlFor="bookingGuests" />
-        <Select
-          name="bookingGuests"
-          id="bookingGuests"
-          register={register("bookingGuests")}
-        >
-          <option disabled>Antal Gäster</option>
-          <option value="1">1 gäst</option>
-          <option value="2">2 gäster</option>
-          <option value="3">3 gäster</option>
-          <option value="4">4 gäster</option>
-          <option value="5">5 gäster</option>
-          <option value="6">6 gäster</option>
-          <option value="7">7 gäster</option>
-          <option value="8">8 gäster</option>
-          <option value="9">9 gäster</option>
-          <option value="10">10 gäster</option>
-        </Select>
-      </FormPart>
-      <FormPart>
-        <Label htmlFor="bookingArrival" text="Ankomst" />
-        <Input
-          type="date"
-          id="bookingArrival"
-          placeholder="(åååå-mm-dd)"
-          register={register("bookingArrival", { required: true })}/>
-          {errors.bookingArrival && <FormError message="Vänligen välj ett datum"/>}
-      </FormPart>
-      <FormPart>
-        <Label htmlFor="bookingDeparture" text="Avresa" />
-        <Input
-          type="date"
-          id="bookingDeparture"
-          placeholder="(åååå-mm-dd)"
-          register={register("bookingDeparture", { required: true })}/>
-          {errors.bookingName && <FormError message="Vänligen välj ett datum"/>}
-      </FormPart>
-      <FormPart>
-      <Label htmlFor="bookingRooms" text="Rum/Stugor" />
-        <CheckboxWrapper>
-        {rooms.data.map(room => {
-          return <CheckboxItem text={room.value} htmlFor={room.id}>
-          <HiddenInput
-            defaultValue={`${room.id},${room.value}`}
-            id={room.id}
-            register={register("rooms")}
+    <>
+      <Form id="booking_form" name="bookingReservation" onSubmit={onSubmit}>
+        <FormPart>
+          <Label text="Person som bokar" htmlFor="bookingName" />
+          <Input
+            id="bookingName"
+            type="text"
+            placeholder="Namn"
+            register={register("bookingName", { required: true })}
           />
-        </CheckboxItem>
-        })}
-        </CheckboxWrapper>
-      </FormPart>
-      <FormPart>
-        <Label htmlFor="bookingMessage" text="Eventuellt meddelande" />
-        <Input
-          type="text"
-          id="bookingMessage"
-          register={register("bookingMessage")}
-          placeholder="Meddelande"
-        />
-      </FormPart>
-      <FormPart>
-        <SubmitButton
-          name="Submit"
-          value={props.isBeingChanged ? "Uppdatera bokning" : "Skapa bokning"}
-        />
-      </FormPart>
-    </Form>
+          {errors.bookingName && (
+            <FormError message="Vänligen fyll i för- och efternamn" />
+          )}
+        </FormPart>
+        <FormPart>
+          <Label text="Gäster" htmlFor="bookingGuests" />
+          <Select
+            name="bookingGuests"
+            id="bookingGuests"
+            register={register("bookingGuests")}
+          >
+            <option disabled>Antal Gäster</option>
+            <option value="1">1 gäst</option>
+            <option value="2">2 gäster</option>
+            <option value="3">3 gäster</option>
+            <option value="4">4 gäster</option>
+            <option value="5">5 gäster</option>
+            <option value="6">6 gäster</option>
+            <option value="7">7 gäster</option>
+            <option value="8">8 gäster</option>
+            <option value="9">9 gäster</option>
+            <option value="10">10 gäster</option>
+          </Select>
+        </FormPart>
+        <FormPart>
+          <Label htmlFor="bookingArrival" text="Ankomst" />
+          <Input
+            type="date"
+            id="bookingArrival"
+            placeholder="(åååå-mm-dd)"
+            register={register("bookingArrival", { required: true })}
+          />
+          {errors.bookingArrival && (
+            <FormError message="Vänligen välj ett datum" />
+          )}
+        </FormPart>
+        <FormPart>
+          <Label htmlFor="bookingDeparture" text="Avresa" />
+          <Input
+            type="date"
+            id="bookingDeparture"
+            placeholder="(åååå-mm-dd)"
+            register={register("bookingDeparture", { required: true })}
+          />
+          {errors.bookingName && (
+            <FormError message="Vänligen välj ett datum" />
+          )}
+        </FormPart>
+        <FormPart>
+          <Label htmlFor="bookingRooms" text="Rum/Stugor" />
+          <CheckboxWrapper>
+            {rooms.data.map((room) => {
+              return (
+                <CheckboxItem text={room.value} htmlFor={room.id}>
+                  <HiddenInput
+                    defaultValue={`${room.id},${room.value}`}
+                    id={room.id}
+                    register={register("rooms")}
+                  />
+                </CheckboxItem>
+              );
+            })}
+          </CheckboxWrapper>
+        </FormPart>
+        <FormPart>
+          <Label htmlFor="bookingMessage" text="Eventuellt meddelande" />
+          <Input
+            type="text"
+            id="bookingMessage"
+            register={register("bookingMessage")}
+            placeholder="Meddelande"
+          />
+        </FormPart>
+        <FormPart>
+          <SubmitButton
+            name="Submit"
+            value={props.isBeingChanged ? "Uppdatera bokning" : "Skapa bokning"}
+          />
+        </FormPart>
+      </Form>
+      <DevTool control={control} /> {/* set up the dev tool */}
+    </>
   );
 };
 

@@ -49,7 +49,7 @@ export default function Popup({
                 bokningen nedan.
               </p>
             </div>
-            <BookingForm key="booking-form" userID={user.userData.uid} onBookingComplete={onBookingComplete} closePopup={closePopup}/>
+            <BookingForm key="booking-form" userID={user.userData.uid} onBookingComplete={onBookingComplete} popupForm={popupForm} closePopup={closePopup}/>
             {/* <Form onBookingComplete={onBookingComplete} user={user} closePopup={closePopup}/> */}
           </div>
         </motion.div>
