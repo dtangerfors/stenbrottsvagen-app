@@ -31,7 +31,7 @@ type BookingData = {
 };
 
 const BookingForm = (props: any) => {
-  const {isUpdatingBooking, bookingKey} = props.popupForm;
+  const {isUpdatingBooking = false, bookingKey} = props.popupForm;
   const [booking, setBooking] = useState<any>({});
   const {register, handleSubmit, formState: { errors }, control, reset} = useForm<BookingData>();
 
