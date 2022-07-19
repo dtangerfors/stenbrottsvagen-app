@@ -19,7 +19,7 @@ const Popup = (props) => {
     } else {
       setPopupData(FormContent.data.isNew)
     }
-  })
+  }, [popupForm.isUpdatingBooking])
 
   return (
     <AnimatePresence>

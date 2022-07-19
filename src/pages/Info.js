@@ -16,7 +16,7 @@ export default function Info() {
         <div className="w-full max-w-screen-xl mx-auto">
           <div>
           </div>
-        <ReleaseList />
+        <ReleaseList key="release-list" />
          </div>
       </main>
     </>
