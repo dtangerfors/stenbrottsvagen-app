@@ -56,13 +56,13 @@ const BookingForm = (props: any) => {
         }
       );
     }
-  }, [props.popupForm]);
+  }, [bookingKey, isUpdatingBooking, props.userID]);
 
   useEffect(() => {
     if (isUpdatingBooking) {
       reset(booking);
     }
-  }, [booking]);
+  }, [booking, isUpdatingBooking, reset]);
 
   const createBooking = (data: BookingData) => {
     // Set booking user ID
