@@ -35,6 +35,7 @@ module.exports = {
         'info-bg': "linear-gradient(to left bottom, rgba(0,0,0, .1), #2c564e), url('/src/images/hero.jpg')",
         'menu-bg': "url(/src/images/menu-bg-filled.svg)",
         'menu-dark': "url(/src/images/menu-bg-filled-dark.svg)",
+        'dot': "url(/src/images/dot.svg)",
        }),
        colors: {
         primary: '#5cdb95',
@@ -66,6 +67,9 @@ module.exports = {
        },
        screens: {
         'portrait': {'raw': '(orientation: portrait)'},
+      },
+      backgroundSize: {
+        'xs': '4px 2px',
       }
     },
   },
