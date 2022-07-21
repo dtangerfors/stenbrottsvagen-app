@@ -8,4 +8,5 @@ export type BookingData = {
    rooms: any[];
    createdAt: number;
    updatedAt: number;
+   key: string;
  };
