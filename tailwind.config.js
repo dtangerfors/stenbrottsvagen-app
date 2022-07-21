@@ -30,8 +30,8 @@ module.exports = {
     extend: {
       backgroundImage: theme => ({
         'hero-bg': "linear-gradient(to left bottom, rgba(0,0,0, .1), #2c564e), url('/src/images/hero-bg.jpg')",
-        'cover-bg': "linear-gradient(to left bottom, rgba(43, 140, 121, .25), rgba(44, 86, 78, .8)), url('/src/images/cover-spring.jpg')",
-        'portrait-cover-bg': "linear-gradient(to left bottom, rgba(43, 140, 121, .25), rgba(44, 86, 78, .8)), url('/src/images/cover-spring-portrait.jpg')",
+        'cover-bg': "linear-gradient(to left bottom, rgba(0,0,0, .25), rgba(0,0,0, .4)), url('/src/images/cover-bungenas.webp')",
+        'portrait-cover-bg': "linear-gradient(to left bottom, rgba(0,0,0, .25), rgba(0,0,0, .4)), url('/src/images/cover-bungenas-portrait.webp')",
         'info-bg': "linear-gradient(to left bottom, rgba(0,0,0, .1), #2c564e), url('/src/images/hero.jpg')",
         'menu-bg': "url(/src/images/menu-bg-filled.svg)",
         'menu-dark': "url(/src/images/menu-bg-filled-dark.svg)",
