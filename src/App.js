@@ -15,6 +15,7 @@ import Complete from "./components/Complete.js";
 import Info from "./pages/Info.js";
 import Popup from "./components/popup_window";
 import DesktopHeader from "./components/DesktopHeader.js";
+import { UserContext } from "./user-context";
 
 export default class App extends Component {
   constructor() {
@@ -128,6 +129,7 @@ export default class App extends Component {
     return (
       <>
         <div className="App">
+          <UserContext.Provider value={user.userData}>
           {user.userData ? (
             <Router>
               <BrowserView className="sticky z-10 top-0">
@@ -160,7 +162,7 @@ export default class App extends Component {
                     <Info />
                   </Route>
                   <Route path="/">
-                    <Hem openPopup={this.openPopup} />
+                    <Hem openPopup={this.openPopup} isUpdatingBooking={this.editBooking} />
                   </Route>
                 </Switch>
               </div>
@@ -182,6 +184,8 @@ export default class App extends Component {
             user={user}
             onBookingComplete={this.handleCompleteBooking}
           />
+          </UserContext.Provider>
+          
         </div>
       </>
     );
