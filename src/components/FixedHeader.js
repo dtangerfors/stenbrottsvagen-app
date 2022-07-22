@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import { MobileView } from "react-device-detect";
 
 export default function FixedHeader(props) {
