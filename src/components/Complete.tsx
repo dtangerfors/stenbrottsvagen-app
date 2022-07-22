@@ -2,7 +2,7 @@ import React from "react";
 import Lottie from "react-lottie";
 import animationData from "../complete-icon.json";
 
-export default function Complete(props) {
+export default function Complete(props: any) {
   const defaultOptions = {
     loop: true,
     autoplay: true,
