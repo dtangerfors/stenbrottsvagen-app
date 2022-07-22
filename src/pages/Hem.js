@@ -2,7 +2,7 @@ import React from "react";
 import ViewAllBookings from "../components/ViewAllBookings";
 import Weather from "../components/Weather";
 
-function Hem({openPopup}) {
+function Hem({openPopup, isUpdatingBooking}) {
   return (
     <>
       <div className="relative z-0">
@@ -44,7 +44,7 @@ function Hem({openPopup}) {
                 Inlagda bokningar
               </h2>
               <div className="w-full grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                <ViewAllBookings />
+                <ViewAllBookings isUpdatingBooking={isUpdatingBooking} />
               </div>
             </div>
           </section>

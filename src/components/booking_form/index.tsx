@@ -17,18 +17,7 @@ import {
 } from "./form_items";
 
 import rooms from "./rooms.json";
-
-type BookingData = {
-  bookingName: string;
-  bookingGuests: number;
-  bookingArrival: string;
-  bookingDeparture: string;
-  bookingMessage: string;
-  bookingUserID: string;
-  rooms: any[];
-  createdAt: number;
-  updatedAt: number;
-};
+import { BookingData } from "./type";
 
 const BookingForm = (props: any) => {
   const {isUpdatingBooking = false, bookingKey} = props.popupForm;

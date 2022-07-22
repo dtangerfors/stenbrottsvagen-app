@@ -6,9 +6,9 @@ const TaskButton = ({ onClick, actionText, icon }) => {
   return (
     <button
       onClick={onClick}
-      className="relative flex items-center justify-center ml-4 text-base text-gray-400 leading-none w-12 h-12 rounded-full hover:bg-gray-100 transition-all ease-in-out duration-200"
+      className="relative h-8 flex items-center justify-center ml-2 font-medium text-sm text-gray-400 uppercase leading-none rounded-[3rem] py-2 pl-4 pr-2 hover:bg-gray-100 transition-all ease-in-out duration-200"
     >
-      <span className="sr-only">{actionText}</span>{" "}
+      <span className="mr-2">{actionText}</span>{" "}
       <i className={iconClassName}></i>
     </button>
   );
