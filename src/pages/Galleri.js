@@ -3,6 +3,7 @@ import SimpleReactLightbox, { SRLWrapper } from "simple-react-lightbox";
 import GalleryGrid from "../components/gallery/GalleryGrid";
 import Image from "../components/gallery/Image";
 import Header from "../components/Header";
+import FixedHeader from "../components/FixedHeader";
 
 import galleries from "../image-data.json";
 
@@ -24,6 +25,11 @@ const options = {
 export default function Galleri() {
   return (
     <div className="relative">
+      <FixedHeader>
+        <h1 className="font-title font-semibold text-heading text-black dark:text-white">
+          Galleri
+        </h1>
+      </FixedHeader>
       <Header>
           <div>
             <h1 className="font-title font-semibold text-heading text-white">

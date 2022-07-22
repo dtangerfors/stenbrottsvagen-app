@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import { PrimaryButton } from "../components/buttons";
 import ViewPersonalBookings from "../components/ViewPersonalBookings";
+import FixedHeader from "../components/FixedHeader";
 
 function Profil(props) {
 
@@ -29,6 +30,11 @@ function Profil(props) {
   });
   return (
     <>
+    <FixedHeader>
+        <h1 className="font-title font-semibold text-heading text-black dark:text-white">
+          Profil
+        </h1>
+      </FixedHeader>
       <header className="flex flex-wrap justify-center px-8 lg:px-20 py-20 dark:bg-black">
         <div className="w-full h-80 lg:h-96 bg-cover-bg bg-cover bg-center rounded-3xl rounded-b-none"></div>
         {props.user ? (

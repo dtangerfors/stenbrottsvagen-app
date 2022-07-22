@@ -1,12 +1,18 @@
 import React from "react";
 import ViewAllBookings from "../components/ViewAllBookings";
 import Weather from "../components/Weather";
+import FixedHeader from "../components/FixedHeader";
 
 function Hem({openPopup, isUpdatingBooking}) {
   return (
     <>
       <div className="relative z-0">
-        <header className="w-full px-8 pt-32 pb-20 lg:px-20 lg:min-h-screen flex items-center self-start bg-transparent">
+      <FixedHeader>
+        <h1 className="font-title font-semibold text-heading text-primary dark:text-secondary">
+          S3
+        </h1>
+      </FixedHeader>
+        <header className="w-full px-8 pt-32 pb-20 lg:px-20 lg:min-h-[80vh] flex items-center self-start bg-transparent">
           <div className="grid lg:grid-cols-2 gap-20 w-full max-w-screen-xl mx-auto">
             <div>
               <h1 className="font-title font-semibold text-heading text-white">
@@ -120,6 +126,9 @@ function Hem({openPopup, isUpdatingBooking}) {
                         <td className="py-2 first:pl-8 last:pr-8">14-dag</td>
                         <td className="py-2 first:pl-8 last:pr-8">Jämn v</td>
                       </tr>
+                      <tr className="text-gray-600 dark:text-gray-100">
+                        <td colSpan="3" className="pt-8 px-8"><span className="text-headline font-bold text-black dark:text-white block">Aktuella datum 2022:</span> 28 jun, 12 jul, 26 jul, 9 aug, 23 aug och 6 sep</td>
+                      </tr>
                     </tbody>
                   </table>
                 </div>
@@ -152,6 +161,7 @@ function Hem({openPopup, isUpdatingBooking}) {
                         <td className="py-2 first:pl-8 last:pr-8">7-15/18</td>
                         <td className="py-2 first:pl-8 last:pr-8">9-15</td>
                       </tr>
+                      
                     </tbody>
                   </table>
                 </div>
