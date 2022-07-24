@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-function NavPill(props) {
+function NavPill(props: any) {
   return (
     <NavLink
       exact
@@ -14,7 +14,7 @@ function NavPill(props) {
   );
 }
 
-export default function DesktopHeader({ openPopup }) {
+export default function DesktopHeader({ openPopup }: any) {
   return (
     <div className="bg-white dark:bg-black px-8 lg:px-20">
       <div className="max-w-screen-xl flex items-center mx-auto">

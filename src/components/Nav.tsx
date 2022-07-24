@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-function NavPill(props) {
+function NavPill(props: any) {
   return (
     <NavLink
       exact
@@ -14,7 +14,7 @@ function NavPill(props) {
   );
 }
 
-function Nav({openPopup}) {
+function Nav({openPopup}: any) {
   return (
     <nav className="fixed z-20 bottom-0 left-0 flex justify-center w-full bg-white border-gray-200 border-t dark:bg-black dark:border-gray-700">
       <NavPill to="/">

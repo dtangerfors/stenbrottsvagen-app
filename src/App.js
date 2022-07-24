@@ -6,15 +6,15 @@ import "remixicon/fonts/remixicon.css";
 
 import { auth, provider } from "./firebase";
 import Login from "./components/Login";
-import Nav from "./components/Nav.js";
-import Profil from "./pages/Profil.js";
-import Boka from "./pages/Boka.js";
-import Hem from "./pages/Hem.js";
-import Galleri from "./pages/Galleri.js";
-import Complete from "./components/Complete.js";
-import Info from "./pages/Info.js";
+import Nav from "./components/Nav";
+import Profil from "./pages/Profil";
+import Boka from "./pages/Boka";
+import Hem from "./pages/Hem";
+import Galleri from "./pages/Galleri";
+import Complete from "./components/Complete";
+import Info from "./pages/Info";
 import Popup from "./components/popup_window";
-import DesktopHeader from "./components/DesktopHeader.js";
+import DesktopHeader from "./components/DesktopHeader";
 import { UserContext } from "./user-context";
 
 export default class App extends Component {

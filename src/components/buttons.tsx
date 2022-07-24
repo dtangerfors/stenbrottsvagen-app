@@ -1,6 +1,6 @@
 import React from "react";
 
-const TaskButton = ({ onClick, actionText, icon }) => {
+const TaskButton = ({ onClick, actionText, icon }: any) => {
   const iconClassName = `ri-${icon}-fill`;
 
   return (
@@ -14,7 +14,7 @@ const TaskButton = ({ onClick, actionText, icon }) => {
   );
 };
 
-const PrimaryButton = ({ onClick, actionText, text }) => {
+const PrimaryButton = ({ onClick, actionText, text }: any) => {
   
     return (
       <button

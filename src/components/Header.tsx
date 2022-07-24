@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserView } from "react-device-detect";
 
-function Header(props) {
+function Header(props: any) {
   return (
     <BrowserView>
       <header className="w-full px-8 pt-32 pb-20 lg:px-20 flex items-center self-start bg-cover-bg bg-cover bg-center">
