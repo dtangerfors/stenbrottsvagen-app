@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Complete from './Lottie.Searching'
 
 type Release = {
   tag_name: string;
@@ -38,7 +39,7 @@ export default function ReleaseList() {
       });
   }, []);
 
-  if (loading) return <p>Laddar …</p>;
+  if (loading) return <div className="flex flex-col"><Complete /><p className="text-base text-black dark:text-white text-center">Laddar …</p></div>;
   if (error) return <p>Ett fel uppstod …</p>;
 
   latestRelease = releaseData?.at(0);

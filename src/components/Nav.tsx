@@ -29,7 +29,7 @@ function Nav({openPopup}: any) {
       >
         <button
           onClick={openPopup}
-          className="flex-1 flex justify-center items-center mx-auto m-2 bg-gradient-to-tr from-secondary to-primary w-20 h-20 rounded-full text-base text-white shadow-md transition-all ease-in-out duration-200 transform hover:scale-105"
+          className="flex-1 flex justify-center items-center mx-auto m-2 bg-primary w-20 h-20 rounded-full text-base text-white transition-all hover:bg-secondary"
         >
           <i className="ri-add-line text-title1 leading-none"></i>
         </button>

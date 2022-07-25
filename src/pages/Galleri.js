@@ -24,9 +24,9 @@ const options = {
 
 export default function Galleri() {
   return (
-    <div className="relative">
+    <>
       <FixedHeader>
-        <h1 className="font-title font-semibold text-heading text-black dark:text-white">
+        <h1 className="font-title font-semibold text-title1 text-white">
           Galleri
         </h1>
       </FixedHeader>
@@ -37,7 +37,7 @@ export default function Galleri() {
             </h1>
           </div>
       </Header>
-      <main>
+      <main className="mt-20">
         {galleries.galleries.map((gallery, key) => {
           return (
             <SimpleReactLightbox key={`gallery-${key}`}>
@@ -52,6 +52,6 @@ export default function Galleri() {
           );
         })}
       </main>
-    </div>
+    </>
   );
 }

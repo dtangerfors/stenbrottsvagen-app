@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { onValue } from "firebase/database";
 import bookingDB from "../firebase/bookingDb";
 import PersonalBookingCard from "./PersonalBookingCard";
+import Card from "./BookingCard";
 
 function ViewPersonalBookings(props: any) {
   const [bookings, setBookings] = useState<any>([]);
@@ -35,9 +36,9 @@ function ViewPersonalBookings(props: any) {
     };
   }, [props.userID]);
 
-  return bookings.map((booking: any, index: number) => (
-    <PersonalBookingCard key={index} booking={booking} isUpdatingBooking={props.isUpdatingBooking}/>
-  ));
+  return bookings.map((booking: any, index: number) => {
+  return (<Card userIsLoggedIn={true} key={index} booking={booking} isUpdatingBooking={props.isUpdatingBooking} />)
+});
 }
 
 export default ViewPersonalBookings;

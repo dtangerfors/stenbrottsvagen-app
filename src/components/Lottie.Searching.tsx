@@ -4,7 +4,7 @@ import animationData from "../icon-searching.json";
 
 export default function Complete() {
   const defaultOptions = {
-    loop: false,
+    loop: true,
     autoplay: true,
     animationData: animationData,
     rendererSettings: {

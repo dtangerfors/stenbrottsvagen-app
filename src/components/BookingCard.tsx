@@ -57,7 +57,7 @@ const Card = (props: any) => {
   const booking: BookingData = props.booking;
 
   return (
-    <div className="flex flex-col flex-30 mb-7 filter drop-shadow-xl">
+    <div className="flex flex-col flex-30 mb-7">
       <div className="flex-1 rounded-t-sm p-6 md:p-8 bg-white dark:bg-black">
         <div className="flex justify-between w-full mb-4">
           <div className="w-1/2">

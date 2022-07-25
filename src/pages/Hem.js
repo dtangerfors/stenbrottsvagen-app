@@ -2,14 +2,16 @@ import React from "react";
 import ViewAllBookings from "../components/ViewAllBookings";
 import Weather from "../components/Weather";
 import FixedHeader from "../components/FixedHeader";
+import logo from "../images/logo.svg"
 
 function Hem({openPopup, isUpdatingBooking}) {
   return (
     <>
-      <div className="relative z-0">
-      <FixedHeader>
-        <h1 className="font-title font-semibold text-heading text-primary dark:text-secondary">
-          S3
+      <div className="relative z-0 pt-safe-top">
+      <FixedHeader invisibleFromStart>
+        <h1 className="flex items-center">
+         <span className="sr-only">Stenbrottsvägen 3</span>
+         <img src={logo} width={34} />
         </h1>
       </FixedHeader>
         <header className="w-full px-8 pt-32 pb-20 lg:px-20 lg:min-h-[80vh] flex items-center self-start bg-transparent">
@@ -30,21 +32,21 @@ function Hem({openPopup, isUpdatingBooking}) {
             <div className="grid gap-8">
               <button
                 onClick={openPopup}
-                className="relative w-full rounded-sm shadow-xl p-8 bg-white"
+                className="relative w-full rounded-sm p-8 bg-white"
               >
                 <h2 className="font-sans text-base font-medium text-black">
                   <span className="text-secondary">Dags att resa?</span> Lägg in
                   bokning här &rarr;
                 </h2>
               </button>
-              <div className="relative w-full rounded-sm shadow-xl p-8 bg-white">
+              <div className="relative w-full rounded-sm p-8 bg-white">
                 <Weather />
               </div>
             </div>
           </div>
         </header>
         <main className="grid">
-          <section className="py-20 px-8 lg:px-20 bg-gray-100 dark:bg-gray-900">
+          <section className="py-20 px-8 lg:px-20 bg-lightGray dark:bg-gray-900">
             <div className="w-full max-w-screen-xl mx-auto">
             <h2 className="text-black dark:text-white text-title1 pb-4">
                 Inlagda bokningar

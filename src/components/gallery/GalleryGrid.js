@@ -4,7 +4,7 @@ export default function GalleryGrid(props) {
   return (
     <section className="relative py-20 px-8 lg:px-20">
       <div className="w-full max-w-screen-xl mx-auto pt-6 pb-4">
-          <h2 className="text-black dark:text-white text-title1">
+          <h2 className="text-black dark:text-white text-title2">
             {props.galleryTitle}
           </h2>
       </div>

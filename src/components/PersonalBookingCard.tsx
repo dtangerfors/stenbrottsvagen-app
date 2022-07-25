@@ -7,7 +7,7 @@ const PersonalBookingCard = (props: any) => {
 
    return (
       <div
-      className="flex flex-wrap justify-between items-center rounded-sm shadow-lg p-8 my-4 bg-white"
+      className="flex flex-wrap justify-between items-center rounded-sm p-8 my-4 bg-white"
     >
       <div className="py-1">
         <p className="font-sans text-sm font-medium tracking-wider uppercase block text-secondary">

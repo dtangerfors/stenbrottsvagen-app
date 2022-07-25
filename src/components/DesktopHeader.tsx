@@ -43,7 +43,7 @@ export default function DesktopHeader({ openPopup }: any) {
         <div className="relative ml-auto">
           <button
             onClick={openPopup}
-            className="flex-1 flex justify-center items-center mx-auto px-4 pl-6 py-2 bg-gradient-to-tr from-secondary to-primary rounded-full text-headline text-white shadow-md transition-all ease-in-out duration-200 transform hover:scale-105"
+            className="flex-1 flex justify-center items-center mx-auto px-4 pl-6 py-2 bg-primary rounded-full text-headline text-white transition-all hover:bg-secondary"
           > Lägg in bokning 
             <i className="ri-add-line text-base leading-none"></i>
           </button>
