@@ -64,7 +64,7 @@ function Profil(props) {
         ) : null}
       </header>
       <main className="grid py-20 pb-32 px-8 lg:px-20 bg-lightGray flex-1 dark:bg-gray-900">
-        <section>
+        <section className="w-full max-w-screen-xl mx-auto">
           <div className="mb-12">
             <h2 className="text-title1 text-black dark:text-white">
               Mina bokningar

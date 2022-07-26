@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import logo from "../images/logo.svg"
 
 function NavPill(props: any) {
   return (
@@ -20,9 +21,10 @@ export default function DesktopHeader({ openPopup }: any) {
       <div className="max-w-screen-xl flex items-center mx-auto">
         <NavLink
           to="/"
-          className="font-sans text-title2 font-bold text-primary dark:text-secondary"
+          className="flex items-center"
         >
-          S3
+         <span className="sr-only">Stenbrottsvägen 3</span>
+         <img src={logo} width={34} />
         </NavLink>
 
         <nav className="relative ml-8 flex">
