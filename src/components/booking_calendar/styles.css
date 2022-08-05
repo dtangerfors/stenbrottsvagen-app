@@ -1,0 +1,118 @@
+.rbc-calendar {
+   @apply relative flex flex-col rounded-sm bg-white pb-8 h-[35rem] md:h-[50rem] -mx-8 md:mx-auto;
+}
+
+/* Navigation */
+.rbc-toolbar {
+   @apply  mx-8 pt-8 flex justify-between items-center;
+}
+
+.rbc-btn-group:last-child {
+   @apply hidden;
+}
+
+.rbc-toolbar-label {
+   @apply text-headline uppercase font-medium text-black;
+}
+
+.rbc-btn-group {
+   @apply border border-gray-200 rounded-3xl
+}
+
+.rbc-btn-group button {
+   @apply text-headline px-4 py-1 m-0;
+}
+
+.rbc-btn-group button:not(:first-child) {
+   @apply border-l border-gray-200;
+}
+
+/* View */
+.rbc-month-view {
+   @apply flex-1 flex flex-col mx-8 mt-4 border border-gray-200;
+}
+
+/* Header Row */
+.rbc-month-header {
+   @apply flex border-b border-gray-200;
+}
+
+.rbc-header {
+   @apply flex-1 py-1 text-center text-headline text-black font-medium uppercase;
+}
+
+.rbc-header:not(:last-child) {
+   @apply border-r border-gray-200;
+}
+
+/* Month Row */
+.rbc-month-row {
+   @apply flex flex-col flex-1 relative;
+}
+
+.rbc-month-row+.rbc-month-row {
+   @apply border-t border-gray-200;
+}
+
+.rbc-row-content {
+   @apply relative;
+}
+
+.rbc-row {
+   @apply flex;
+}
+
+.rbc-row-bg {
+   @apply absolute inset-0 flex flex-1;
+}
+
+/* Date */
+.rbc-date-cell {
+   @apply flex-1 text-right p-1;
+}
+
+.rbc-button-link {
+   @apply w-9 h-9 rounded-full grid place-items-center ml-auto text-sm text-black leading-none;
+}
+
+.rbc-now .rbc-button-link {
+   @apply text-white bg-primary;
+}
+
+.rbc-day-bg {
+   @apply flex-1;
+}
+
+.rbc-day-bg+.rbc-day-bg {
+   @apply border-l border-gray-200;
+}
+
+/* Off Range */
+.rbc-off-range-bg {
+   @apply bg-gray-100;
+}
+
+/* Event */
+.rbc-row-segment {
+   @apply mb-1;
+}
+
+.rbc-event {
+   @apply bg-primaryLight rounded-md px-2 h-2 md:h-auto;
+}
+
+.rbc-event-continues-after {
+   @apply rounded-r-none ml-1;
+}
+
+.rbc-event-continues-prior {
+   @apply rounded-l-none mr-1;
+}
+
+.rbc-event-continues-prior.rbc-event-continues-after {
+   @apply rounded-none mx-0;
+}
+
+.rbc-event-content {
+   @apply text-headline text-black sr-only md:not-sr-only;
+}

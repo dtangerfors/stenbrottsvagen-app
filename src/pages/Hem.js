@@ -3,6 +3,7 @@ import ViewAllBookings from "../components/ViewAllBookings";
 import Weather from "../components/Weather";
 import FixedHeader from "../components/FixedHeader";
 import logo from "../images/logo.svg"
+import BookingCalendar from "../components/booking_calendar";
 
 function Hem({openPopup, isUpdatingBooking}) {
   return (
@@ -51,6 +52,9 @@ function Hem({openPopup, isUpdatingBooking}) {
             <h2 className="text-black dark:text-white text-title1 pb-4">
                 Inlagda bokningar
               </h2>
+              <div className="w-full mb-20">
+                <BookingCalendar />
+              </div>
               <div className="w-full grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                 <ViewAllBookings isUpdatingBooking={isUpdatingBooking} />
               </div>
