@@ -1,11 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
+import "moment/locale/sv"
 import { onValue } from "firebase/database";
 import bookingDB from "../../firebase/bookingDb";
 
 import "./styles.css";
 import Complete from "../Lottie.Searching";
+
+moment.locale('sv', {
+  week: {
+      dow: 1,
+  },
+});
 
 const localizer = momentLocalizer(moment);
 const messages = {
