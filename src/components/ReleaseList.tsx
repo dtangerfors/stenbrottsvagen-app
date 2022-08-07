@@ -39,14 +39,14 @@ export default function ReleaseList() {
       });
   }, []);
 
-  if (loading) return <div className="flex flex-col"><Complete /><p className="text-base text-black dark:text-white text-center">Laddar …</p></div>;
+  if (loading) return <div className="flex flex-col"><Complete /><p className="text-base text-black-900 dark:text-white text-center">Laddar …</p></div>;
   if (error) return <p>Ett fel uppstod …</p>;
 
   latestRelease = releaseData?.at(0);
 
   return (
     <div>
-      <div className="bg-gray-100 rounded-xl px-4 py-2 w-full dark:bg-black">
+      <div className="bg-gray-100 rounded-xl px-4 py-2 w-full dark:bg-black-700 border border-gray-200 dark:border-black-600">
         <p className="flex justify-between text-headline uppercase text-gray-400 font-medium leading-none py-2 mb-2 border-b border-gray-300 dark:text-gray-300 dark:border-gray-500">
           Aktuell version {latestRelease.tag_name}{" "}
           <span>{showDate(latestRelease.published_at)}</span>

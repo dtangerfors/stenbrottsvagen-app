@@ -58,10 +58,10 @@ const Card = (props: any) => {
 
   return (
     <div className="flex flex-col flex-30 mb-7">
-      <div className="flex-1 rounded-t-sm p-6 md:p-8 bg-white dark:bg-black">
+      <div className="flex-1 rounded-t-sm p-6 md:p-8 bg-white dark:bg-black-800">
         <div className="flex justify-between w-full mb-4">
           <div className="w-1/2">
-            <p className="text-black text-base font-medium leading-snug dark:text-white">
+            <p className="text-black-900 text-base font-medium leading-snug dark:text-white">
               <span className="block text-sm uppercase text-gray-400 font-medium leading-none pb-2">
                 Bokning inlagd av
               </span>
@@ -69,7 +69,7 @@ const Card = (props: any) => {
             </p>
           </div>
           <div className="w-1/2 relative -right-6 md:-right-8 flex justify-end items-start">
-            <div className="inline-block bg-primaryLight/50 text-headline capitalize p-2 pr-6 md:pr-8 rounded-l-xl border border-secondary/50 border-r-0 text-secondary dark:bg-secondary/20 dark:text-primaryLight dark:border-secondary/30">
+            <div className="inline-block bg-primaryLight/50 text-headline capitalize p-2 pr-6 md:pr-8 rounded-l-xl border border-secondary/50 border-r-0 text-secondary dark:bg-secondary/70 dark:text-primaryLight dark:border-secondary/30">
               <span className="whitespace-nowrap">
                 {bookedDates(booking.bookingArrival, booking.bookingDeparture)}
               </span>
@@ -78,18 +78,18 @@ const Card = (props: any) => {
         </div>
         <div className="flex w-full border-t border-gray-200 pt-4 pb-6 dark:border-gray-600">
           <div className="w-1/3">
-            <span className="block text-sm uppercase text-gray-400 font-medium leading-none pb-2">
+            <span className="block text-sm uppercase text-gray-400 font-medium leading-none pb-2 dark:text-gray-300">
               Antal gäster
             </span>
-            <p className="text-gray-700 text-headline dark:text-gray-300">
+            <p className="text-black-900 text-headline dark:text-white">
               {showGuests(booking.bookingGuests)}
             </p>
           </div>
           <div className="w-2/3">
-            <span className="block text-sm uppercase text-gray-400 font-medium leading-none pb-2">
+            <span className="block text-sm uppercase text-gray-400 font-medium leading-none pb-2 dark:text-gray-300">
               Bokade rum
             </span>
-            <p className="text-gray-700 text-headline dark:text-gray-300">
+            <p className="text-black-900 text-headline dark:text-white">
               {getRoomName(booking.rooms)}
             </p>
           </div>
@@ -97,21 +97,21 @@ const Card = (props: any) => {
         <div className="w-full mt-auto">
           {booking.bookingMessage && (
             <>
-              <span className="block border-t border-gray-200 text-sm uppercase text-gray-400 font-medium leading-none pt-4 pb-2 dark:border-gray-600">
+              <span className="block border-t border-gray-200 text-sm uppercase text-gray-400 font-medium leading-none pt-4 pb-2 dark:border-gray-600 dark:text-gray-300">
                 Meddelande
               </span>
-              <p className="text-gray-700 text-headline dark:text-gray-300">
+              <p className="text-black-900 text-headline dark:text-white">
                 {booking.bookingMessage}
               </p>
             </>
           )}
         </div>
       </div>
-      <div className="relative h-4 mx-4 bg-white dark:bg-black bg-dot bg-repeat-x bg-xs bg-center">
-          <div className="absolute w-10 h-10 top-1/2 -left-4 transform -translate-y-1/2 -translate-x-1/2 rotate-45 border-transparent border-[8px] border-t-white border-r-white rounded-full dark:border-t-black dark:border-r-black"></div>
-          <div className="absolute w-10 h-10 top-1/2 -right-14 transform -translate-y-1/2 -translate-x-1/2 -rotate-45 border-transparent border-[8px] border-t-white border-l-white rounded-full dark:border-t-black dark:border-l-black"></div>
+      <div className="relative h-4 mx-4 bg-white dark:bg-black-800 bg-dot bg-repeat-x bg-xs bg-center">
+          <div className="absolute w-10 h-10 top-1/2 -left-4 transform -translate-y-1/2 -translate-x-1/2 rotate-45 border-transparent border-[8px] border-t-white border-r-white rounded-full dark:border-t-black-800 dark:border-r-black-800"></div>
+          <div className="absolute w-10 h-10 top-1/2 -right-14 transform -translate-y-1/2 -translate-x-1/2 -rotate-45 border-transparent border-[8px] border-t-white border-l-white rounded-full dark:border-t-black-800 dark:border-l-black-800"></div>
       </div>
-      <div className="flex items-center h-16 rounded-b-sm px-6 md:px-8 bg-white dark:bg-black">
+      <div className="flex items-center h-16 rounded-b-sm px-6 md:px-8 bg-white dark:bg-black-800">
         <div className="flex justify-between items-center w-full">
           <span className="text-sm uppercase text-gray-400 font-medium leading-none">
           <i className="ri-history-line align-text-top"></i> {showDate(booking.createdAt)}

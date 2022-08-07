@@ -63,14 +63,14 @@ const MonthEvent = ({ event }: any) => {
   return (
     <div className="relative">
       <div className="peer truncate">{event.title}</div>
-      <div className="tooltip hidden absolute z-10 w-96 bg-white border border-gray-50 shadow-xl p-6 rounded-lg peer-hover:block">
-        <span className="block border-b border-gray-200 py-1">
+      <div className="tooltip hidden absolute z-10 w-96 bg-white border border-gray-50 shadow-xl p-6 rounded-lg peer-hover:block dark:bg-black-900 dark:border-black-700">
+        <span className="block border-b border-gray-200 py-1 dark:border-gray-700">
           {event.title}
         </span>
-        <span className="block border-b border-gray-200 py-1">
+        <span className="block border-b border-gray-200 py-1 dark:border-gray-700">
           {bookedDates(event.start, event.end)}
         </span>
-        <span className="block border-b border-gray-200 py-1">
+        <span className="block border-b border-gray-200 py-1 dark:border-gray-700">
           {event.guests} gäster,{" "}
           {event.rooms ? `${event.rooms.length} rum bokade` : "Inga rum valda"}
         </span>

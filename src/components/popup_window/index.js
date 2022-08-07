@@ -35,7 +35,7 @@ const Popup = (props) => {
           className="fixed w-full h-5/6 max-w-screen-sm bottom-0 left-1/2 transform -translate-x-1/2 bg-white rounded-lg rounded-b-none z-50 overflow-y-scroll overflow-x-hidden"
         >
           <header className="sticky top-0 flex justify-between items-center w-full p-8 py-6 bg-white border-gray-200 border-b">
-            <h2 className="font-title font-semibold text-heading text-black leading-none">
+            <h2 className="font-title font-semibold text-heading text-black-900 leading-none">
               {popupData.title}
             </h2>
             <button

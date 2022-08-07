@@ -24,12 +24,12 @@ export default function Info() {
         </div>
       </Header>
       <div className="pt-safe-top">
-        <main className="py-32 px-8 lg:px-20 flex-1 dark:bg-gray-900">
+        <main className="py-32 px-8 lg:px-20 flex-1 dark:bg-black-900">
           <div className="w-full max-w-screen-xl mx-auto">
             <ReleaseList key="release-list" />
             <div className="mt-20 py-20 border-t border-b border-gray-200 dark:border-gray-500">
               <div class="mb-12">
-                <h2 class="text-title1 text-black dark:text-white">
+                <h2 class="text-title1 text-black-900 dark:text-white">
                   Teknikstack
                 </h2>
                 <p class="text-base text-gray-700 dark:text-gray-300">

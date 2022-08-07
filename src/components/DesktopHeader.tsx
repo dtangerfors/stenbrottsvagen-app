@@ -7,8 +7,8 @@ function NavPill(props: any) {
     <NavLink
       exact
       to={props.to}
-      className="flex text-base mr-12 leading-10 py-8 text-gray-400 text-center hover:text-black transition-all ease-in-out duration-200 dark:hover:text-white"
-      activeClassName="text-primary dark:text-secondary"
+      className="flex text-base mr-12 leading-10 py-8 text-gray-400 text-center hover:text-black-900 transition-all ease-in-out duration-200 dark:hover:text-white"
+      activeClassName="text-primary"
     >
       {props.children}
     </NavLink>
@@ -17,7 +17,7 @@ function NavPill(props: any) {
 
 export default function DesktopHeader({ openPopup }: any) {
   return (
-    <div className="bg-white dark:bg-black px-8 lg:px-20">
+    <div className="bg-white dark:bg-black-800 px-8 lg:px-20 border-b border-gray-50 dark:border-black-600">
       <div className="max-w-screen-xl flex items-center mx-auto">
         <NavLink
           to="/"

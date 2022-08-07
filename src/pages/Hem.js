@@ -33,23 +33,22 @@ function Hem({openPopup, isUpdatingBooking}) {
             <div className="grid gap-8">
               <button
                 onClick={openPopup}
-                className="relative w-full rounded-sm p-8 bg-white"
+                className="relative w-full rounded-sm p-8 bg-white dark:bg-black-800"
               >
-                <h2 className="font-sans text-base font-medium text-black">
-                  <span className="text-secondary">Dags att resa?</span> Lägg in
-                  bokning här &rarr;
+                <h2 className="font-sans text-base font-medium text-black-900 dark:text-white">
+                  Dags att resa? Lägg in bokning här &rarr;
                 </h2>
               </button>
-              <div className="relative w-full rounded-sm p-8 bg-white">
+              <div className="relative w-full rounded-sm p-8 bg-white dark:bg-black-800">
                 <Weather />
               </div>
             </div>
           </div>
         </header>
         <main className="grid">
-          <section className="py-20 px-8 lg:px-20 bg-lightGray dark:bg-gray-900">
+          <section className="py-20 px-8 lg:px-20 bg-gray-50 dark:bg-black-900">
             <div className="w-full max-w-screen-xl mx-auto">
-            <h2 className="text-black dark:text-white text-title1 pb-4">
+            <h2 className="text-black-900 dark:text-white text-title1 pb-4">
                 Inlagda bokningar
               </h2>
               <div className="w-full mb-20">
@@ -66,13 +65,13 @@ function Hem({openPopup, isUpdatingBooking}) {
                 Bra att veta
               </h2>
               <div className="grid gap-8 lg:grid-cols-3">
-                <div className="rounded-sm shadow-xl pt-8 pb-12 bg-white w-full dark:bg-black">
+                <div className="rounded-sm shadow-xl pt-8 pb-12 bg-white w-full dark:bg-black-800">
                   <div className="text-center mb-10">
-                    <h3 className="font-sans text-title2 text-black dark:text-white">
+                    <h3 className="font-sans text-title2 text-black-900 dark:text-white">
                       Hyra
                     </h3>
                   </div>
-                  <table className="relative w-full text-left text-headline text-black dark:text-gray-100">
+                  <table className="relative w-full text-left text-headline text-black-900 dark:text-gray-100">
                     <tbody>
                       <tr>
                         <th className="pb-2 first:pl-8 last:pr-8">
@@ -81,7 +80,7 @@ function Hem({openPopup, isUpdatingBooking}) {
                         <th className="pb-2 first:pl-8 last:pr-8">Vuxen</th>
                         <th className="pb-2 first:pl-8 last:pr-8">Barn</th>
                       </tr>
-                      <tr className="bg-gray-100 dark:bg-gray-700">
+                      <tr className="bg-gray-50 dark:bg-black-700">
                         <td className="py-2 first:pl-8 last:pr-8">En vecka</td>
                         <td className="py-2 first:pl-8 last:pr-8">300 kr</td>
                         <td className="py-2 first:pl-8 last:pr-8">100 kr</td>
@@ -93,7 +92,7 @@ function Hem({openPopup, isUpdatingBooking}) {
                         <td className="py-2 first:pl-8 last:pr-8">400 kr</td>
                         <td className="py-2 first:pl-8 last:pr-8">150 kr</td>
                       </tr>
-                      <tr className="bg-gray-100 dark:bg-gray-700">
+                      <tr className="bg-gray-50 dark:bg-black-700">
                         <td className="py-2 first:pl-8 last:pr-8">
                           Två veckor
                         </td>
@@ -109,20 +108,20 @@ function Hem({openPopup, isUpdatingBooking}) {
                     </tbody>
                   </table>
                 </div>
-                <div className="rounded-sm shadow-xl pt-8 pb-12 bg-white w-full dark:bg-black">
+                <div className="rounded-sm shadow-xl pt-8 pb-12 bg-white w-full dark:bg-black-800">
                   <div className="text-center mb-10">
-                    <h3 className="font-sans text-title2 text-black dark:text-white">
+                    <h3 className="font-sans text-title2 text-black-900 dark:text-white">
                       Sophämtning
                     </h3>
                   </div>
-                  <table className="relative w-full text-left text-headline text-black dark:text-gray-100">
+                  <table className="relative w-full text-left text-headline text-black-900 dark:text-gray-100">
                     <tbody>
                       <tr>
                         <th className="pb-2 first:pl-8 last:pr-8">Hämtning</th>
                         <th className="pb-2 first:pl-8 last:pr-8">Period</th>
                         <th className="pb-2 first:pl-8 last:pr-8">Tisdag</th>
                       </tr>
-                      <tr className="bg-gray-100 dark:bg-gray-700">
+                      <tr className="bg-gray-50 dark:bg-black-700">
                         <td className="py-2 first:pl-8 last:pr-8">Brännbart</td>
                         <td className="py-2 first:pl-8 last:pr-8">14-dag</td>
                         <td className="py-2 first:pl-8 last:pr-8">Udda v</td>
@@ -133,14 +132,14 @@ function Hem({openPopup, isUpdatingBooking}) {
                         <td className="py-2 first:pl-8 last:pr-8">Jämn v</td>
                       </tr>
                       <tr className="text-gray-600 dark:text-gray-100">
-                        <td colSpan="3" className="pt-8 px-8"><span className="text-headline font-bold text-black dark:text-white block">Aktuella datum 2022:</span> 28 jun, 12 jul, 26 jul, 9 aug, 23 aug och 6 sep</td>
+                        <td colSpan="3" className="pt-8 px-8"><span className="text-headline font-bold text-black-900 dark:text-white block">Aktuella datum 2022:</span> 28 jun, 12 jul, 26 jul, 9 aug, 23 aug och 6 sep</td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
-                <div className="rounded-sm shadow-xl pt-8 pb-12 bg-white w-full dark:bg-black">
+                <div className="rounded-sm shadow-xl pt-8 pb-12 bg-white w-full dark:bg-black-800">
                   <div className="text-center mb-10">
-                    <h3 className="font-sans text-title2 text-black dark:text-white">
+                    <h3 className="font-sans text-title2 text-black-900 dark:text-white">
                       Övrig info
                     </h3>
                   </div>
@@ -155,14 +154,14 @@ function Hem({openPopup, isUpdatingBooking}) {
                       nedan.
                     </p>
                   </div>
-                  <table className="relative w-full text-left text-headline text-black dark:text-gray-100">
+                  <table className="relative w-full text-left text-headline text-black-900 dark:text-gray-100">
                     <tbody>
                       <tr>
                         <th className="pb-2 first:pl-8 last:pr-8">Måndag</th>
                         <th className="pb-2 first:pl-8 last:pr-8">Torsdag</th>
                         <th className="pb-2 first:pl-8 last:pr-8">Lördag</th>
                       </tr>
-                      <tr className="bg-gray-100 dark:bg-gray-700">
+                      <tr className="bg-gray-50 dark:bg-black-700">
                         <td className="py-2 first:pl-8 last:pr-8">7-18</td>
                         <td className="py-2 first:pl-8 last:pr-8">7-15/18</td>
                         <td className="py-2 first:pl-8 last:pr-8">9-15</td>

@@ -23,9 +23,25 @@ module.exports = {
     colors: {
       transparent: "transparent",
       current: "currentColor",
-      black: colors.black,
+      black: {
+        600: '#1C3535',
+        700: '#152828',
+        800: '#0E1B1B',
+        900: '#070d0d',
+      },
       white: colors.white,
-      gray: colors.trueGray,
+      gray: {
+        '50': '#f2f3f2',
+    '100': '#e2e5e2',
+    '200': '#c5cac5',
+    '300': '#a0a8a1',
+    '400': '#7c857d',
+    '500': '#626a63',
+    '600': '#4d544e',
+    '700': '#404541',
+    '800': '#353a35',
+    '900': '#2f3230',
+    },
     },
     extend: {
       backgroundImage: (theme) => ({
@@ -45,8 +61,6 @@ module.exports = {
         primary: "#5cc185",
         primaryLight: "#d7f1e2",
         secondary: "#223c3b",
-        black: "#222",
-        ultraBlack: "#000",
         red: "#db605c",
         lightGray: "#eee",
       },

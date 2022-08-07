@@ -34,12 +34,12 @@ function Profil(props) {
           {props.user ? props.user.userData.displayName : "Profil"}
         </h1>
       </FixedHeader>
-      <header className="flex flex-wrap justify-center pb-20 dark:bg-black">
+      <header className="flex flex-wrap justify-center pb-20 bg-gray-50 dark:bg-black-900">
         <div className="w-full h-96 bg-cover-bg bg-cover bg-center"></div>
         {props.user ? (
           <>
             <div className="flex flex-col items-center">
-              <div className="relative w-40 h-40 -mt-20 mb-4 rounded-full bg-cover bg-center border-4 border-white overflow-hidden flex-shrink-0 dark:border-black">
+              <div className="relative w-40 h-40 -mt-20 mb-4 rounded-full bg-cover bg-center border-4 border-gray-50 overflow-hidden flex-shrink-0 dark:border-black-900">
                 <img
                   src={props.user.userData.photoURL}
                   alt={props.user.userData.displayName}
@@ -63,7 +63,7 @@ function Profil(props) {
           </>
         ) : null}
       </header>
-      <main className="grid py-20 pb-32 px-8 lg:px-20 bg-lightGray flex-1 dark:bg-gray-900">
+      <main className="grid py-20 pb-32 px-8 lg:px-20 bg-gray-50 flex-1 dark:bg-black-900">
         <section className="w-full max-w-screen-xl mx-auto">
           <div className="mb-12">
             <h2 className="text-title1 text-black dark:text-white">

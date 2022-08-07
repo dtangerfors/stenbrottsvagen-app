@@ -14,7 +14,7 @@ export default function Overlay() {
       exit={{
         opacity: 0,
       }}
-      className="fixed z-30 w-full h-full bg-ultraBlack inset-0"
+      className="fixed z-30 w-full h-full bg-black-900 inset-0"
     ></motion.div>
   );
 }

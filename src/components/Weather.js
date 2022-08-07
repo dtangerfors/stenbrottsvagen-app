@@ -12,7 +12,7 @@ function Weather() {
         data-mode="Current"
         data-theme="original"
         data-basecolor=""
-        data-textcolor="#404040"
+        data-textcolor="#7c857d"
         data-mooncolor="#dfdede"
         data-cloudfill="#f7f7f7"
       >

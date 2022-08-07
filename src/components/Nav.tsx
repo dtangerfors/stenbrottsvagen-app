@@ -6,7 +6,7 @@ function NavPill(props: any) {
     <NavLink
       exact
       to={props.to}
-      className="flex-1 px-2 pt-2 pb-safeBottom flex flex-col text-sm leading-8 text-gray-400 text-center hover:bg-gray-100 transition-all ease-in-out duration-200 dark:hover:bg-gray-800"
+      className="flex-1 px-2 pt-2 pb-safeBottom flex flex-col text-sm leading-8 text-gray-400 text-center hover:bg-gray-100 transition-all ease-in-out duration-200 dark:hover:bg-black-700"
       activeClassName="text-primary"
     >
       {props.children}
@@ -16,7 +16,7 @@ function NavPill(props: any) {
 
 function Nav({openPopup}: any) {
   return (
-    <nav className="fixed z-20 bottom-0 left-0 flex justify-center w-full bg-white border-gray-200 border-t dark:bg-black dark:border-gray-700">
+    <nav className="fixed z-20 bottom-0 left-0 flex justify-center w-full bg-white border-gray-200 border-t dark:bg-black-800 dark:border-black-600">
       <NavPill to="/">
         <i className="ri-home-line text-base"></i>Hem
       </NavPill>
