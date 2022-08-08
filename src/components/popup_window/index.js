@@ -32,23 +32,23 @@ const Popup = (props) => {
           initial="hidden"
           exit={{ y: 100, x: "-50%", opacity: 0 }}
           animate="visible"
-          className="fixed w-full h-5/6 max-w-screen-sm bottom-0 left-1/2 transform -translate-x-1/2 bg-white rounded-lg rounded-b-none z-50 overflow-y-scroll overflow-x-hidden"
+          className="fixed w-full h-5/6 max-w-screen-sm bottom-0 left-1/2 transform -translate-x-1/2 bg-white rounded-lg rounded-b-none z-50 overflow-y-scroll overflow-x-hidden dark:bg-black-900"
         >
-          <header className="sticky top-0 flex justify-between items-center w-full p-8 py-6 bg-white border-gray-200 border-b">
-            <h2 className="font-title font-semibold text-heading text-black-900 leading-none">
+          <header className="sticky top-0 flex justify-between items-center w-full p-8 py-6 bg-white border-gray-200 border-b dark:bg-black-900 dark:border-black-600">
+            <h2 className="font-title font-semibold text-heading text-black-900 leading-none dark:text-white">
               {popupData.title}
             </h2>
             <button
               onClick={closePopup}
-              className="relative flex items-center justify-center ml-4 text-base text-gray-400 leading-none w-12 h-12 rounded-full bg-gray-100 hover:bg-gray-200 transition-all ease-in-out duration-200"
+              className="relative flex items-center justify-center ml-4 text-base text-gray-400 leading-none w-12 h-12 rounded-full bg-gray-100 hover:bg-gray-200 transition-all ease-in-out duration-200 dark:bg-black-800 dark:hover:bg-black-600"
             >
               <span className="sr-only">Stäng</span>
               <i className="ri-close-line"></i>
             </button>
           </header>
           <div className="w-full p-8 pb-safeBottom">
-            <div className="pb-4 mb-8 border-gray-200 border-b">
-              <p className="max-w-prose text-base text-gray-700">
+            <div className="pb-4 mb-8 border-gray-200 border-b dark:border-black-600">
+              <p className="max-w-prose text-base text-gray-700 dark:text-gray-200">
                 {popupData.message}
               </p>
             </div>

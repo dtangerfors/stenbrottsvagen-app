@@ -31,7 +31,7 @@ const FormPart = ({ children }: any) => (
 const Label = ({ text, ...props }: any) => (
   <label
     {...props}
-    className="text-sm text-secondary font-sans font-medium uppercase tracking-wide"
+    className="text-sm text-secondary font-sans font-medium uppercase tracking-wide dark:text-gray-400"
   >
     {text}
   </label>
@@ -43,7 +43,7 @@ const Input: React.FC<InputProps> = ({ id, type, placeholder, register }: any) =
     type={type}
     placeholder={placeholder}
     {...register}
-    className="font-sans text-default bg-white border border-gray-300 rounded-lg appearance-none h-16 p-2 px-4 invalid:border-red"
+    className="font-sans text-default bg-white border border-gray-300 rounded-lg appearance-none h-16 p-2 px-4 invalid:border-red dark:bg-black-900 dark:border-black-600 dark:text-white dark:placeholder-shown:text-gray-400"
   />
 );
 
@@ -52,7 +52,7 @@ const Select: React.FC<SelectProps> = ({ id, register, children }: any) => (
     <select
      id={id}
      {...register}
-      className="relative w-full font-sans text-default bg-white border border-gray-300 rounded-lg appearance-none h-16 p-2 px-4"
+      className="relative w-full font-sans text-default bg-white border border-gray-300 rounded-lg appearance-none h-16 p-2 px-4 dark:bg-black-900 dark:border-black-600 dark:text-white dark:placeholder-shown:text-gray-400"
     >
       {children}
     </select>
@@ -73,7 +73,7 @@ const CheckboxWrapper = ({children}: any) => (
 )
 
 const CheckboxItem = ({children, text, ...props}: any) => (
-   <label {...props} className="relative z-1 p-2 pl-10 leading-6 bg-gray-100 rounded-md text-headline text-gray-600 cursor-pointer hover:bg-primaryLight">
+   <label {...props} className="relative z-1 p-2 pl-10 leading-6 bg-gray-100 rounded-md text-headline text-gray-600 cursor-pointer hover:bg-primaryLight dark:bg-black-800 dark:text-gray-300">
       {children}
       <Checkbox />
       {text}
