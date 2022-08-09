@@ -42,11 +42,15 @@ export default function ReleaseList() {
   if (loading) return <div className="flex flex-col"><Complete /><p className="text-base text-black-900 dark:text-white text-center">Laddar …</p></div>;
   if (error) return <p>Ett fel uppstod …</p>;
 
-  latestRelease = releaseData?.at(0);
+  latestRelease = releaseData?.slice(0, 1).shift();
+  let previousReleases = releaseData?.slice();
+  previousReleases?.shift();
+
+  console.log(previousReleases)
 
   return (
     <div>
-      <div className="bg-gray-100 rounded-xl px-4 py-2 w-full dark:bg-black-700 border border-gray-200 dark:border-black-600">
+      <div className="bg-gray-50 rounded-xl px-4 py-2 w-full dark:bg-black-700 border border-gray-100 dark:border-black-600">
         <p className="flex justify-between text-headline uppercase text-gray-400 font-medium leading-none py-2 mb-2 border-b border-gray-300 dark:text-gray-300 dark:border-gray-500">
           Aktuell version {latestRelease.tag_name}{" "}
           <span>{showDate(latestRelease.published_at)}</span>
@@ -57,9 +61,9 @@ export default function ReleaseList() {
       </div>
 
       <div className="py-12 px-4">
-        <p className=" text-headline uppercase text-gray-400 font-medium leading-none pb-2 mb-2 border-b border-gray-300 dark:border-gray-500">Alla versioner</p>
+        <p className=" text-headline uppercase text-gray-400 font-medium leading-none pb-2 mb-2 border-b border-gray-300 dark:border-gray-500">Tidigare versioner</p>
         <ul>
-        {releaseData?.map((item: any, key: number) => {
+        {previousReleases?.map((item: any, key: number) => {
           return <li key={`release-item-${key}`} className="flex justify-between py-2 border-b border-gray-200 last:border-0 font-normal text-headline text-gray-400 dark:border-gray-500"><span className="uppercase">{item.tag_name}</span> <span>{showDate(item.published_at)}</span></li>
         })}
         </ul>
