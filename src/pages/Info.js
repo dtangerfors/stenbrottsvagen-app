@@ -28,11 +28,11 @@ export default function Info() {
           <div className="w-full max-w-screen-xl mx-auto">
             <ReleaseList key="release-list" />
             <div className="mt-20 py-20 border-t border-b border-gray-200 dark:border-gray-500">
-              <div class="mb-12">
-                <h2 class="text-title1 text-black-900 dark:text-white">
+              <div className="mb-12">
+                <h2 className="text-title1 text-black-900 dark:text-white">
                   Teknikstack
                 </h2>
-                <p class="text-base text-gray-700 dark:text-gray-300">
+                <p className="text-base text-gray-700 dark:text-gray-300">
                   Applikationen är byggd med följande ramverk:
                 </p>
               </div>
