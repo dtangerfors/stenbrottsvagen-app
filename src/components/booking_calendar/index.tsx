@@ -58,7 +58,6 @@ const bookedDates = (arrivalStr: string, departureStr: string) => {
 };
 
 const MonthEvent = ({ event }: any) => {
-  console.log(event);
 
   return (
     <div className="relative">
@@ -133,7 +132,6 @@ export default function BookingCalendar() {
     end: Date,
     isSelected: boolean
   ) => {
-    console.log(event);
     var backgroundColor = "#" + event.hexColor;
     var style = {
       backgroundColor: backgroundColor,
