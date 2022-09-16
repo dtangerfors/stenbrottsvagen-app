@@ -116,6 +116,12 @@ const BookingForm = (props: any) => {
     }, 3000);
   }
 
+  const archiveBooking = () => {
+    props.closePopup();
+    props.archiveCurrentBooking({key: bookingKey, isArchiving: true})
+
+  }
+
   return (
     <>
       <Form id="booking_form" name="bookingReservation" onSubmit={onSubmit}>
@@ -178,9 +184,9 @@ const BookingForm = (props: any) => {
         <FormPart>
           <Label htmlFor="bookingRooms" text="Rum/Stugor" />
           <CheckboxWrapper>
-            {rooms.data.map((room) => {
+            {rooms.data.map((room, index) => {
               return (
-                <CheckboxItem text={room.value} htmlFor={room.id}>
+                <CheckboxItem text={room.value} htmlFor={room.id} key={`checkbox-${index}`}>
                   <HiddenInput
                     defaultValue={`${room.id},${room.value}`}
                     id={room.id}
@@ -201,13 +207,15 @@ const BookingForm = (props: any) => {
           />
         </FormPart>
         <FormPart>
+          <div className="flex">
           <SubmitButton
             name="Submit"
             value={props.buttonText}
           />
+          <button type="button" onClick={() => archiveBooking()} className="inline-block px-8 ml-4 text-default uppercase tracking-wide rounded-lg bg-gray-50 text-gray-500 cursor-pointer hover:bg-gray-100 transition-all"><span className="sr-only">Radera bokning</span> <i className="ri-delete-bin-6-fill"></i></button>
+          </div>
         </FormPart>
       </Form>
-      <DevTool control={control} /> {/* set up the dev tool */}
     </>
   );
 };

@@ -92,7 +92,7 @@ const Checkbox = () => (
 )
 
 const SubmitButton = ({ value, ...props }: any) => (
-  <input type="submit" value={value} {...props} className="inline-block p-6 text-default uppercase tracking-wide rounded-lg bg-primary text-white cursor-pointer hover:bg-secondary transition-all"/>
+  <input type="submit" value={value} {...props} className="inline-block flex-1 p-6 text-default uppercase tracking-wide rounded-lg bg-primary text-white cursor-pointer hover:bg-secondary transition-all"/>
 );
 
 const FormError = ({message}: any) => (

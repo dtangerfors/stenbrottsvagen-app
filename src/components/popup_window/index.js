@@ -52,7 +52,7 @@ const Popup = (props) => {
                 {popupData.message}
               </p>
             </div>
-            <BookingForm key="booking-form" userID={user.userData.uid} onBookingComplete={onBookingComplete} popupForm={popupForm} closePopup={closePopup} buttonText={popupData.button}/>
+            <BookingForm key="booking-form" userID={user.userData.uid} onBookingComplete={onBookingComplete} popupForm={popupForm} closePopup={closePopup} buttonText={popupData.button} archiveCurrentBooking={props.archiveCurrentBooking}/>
           </div>
         </motion.div>
         <Overlay key="overlay" />

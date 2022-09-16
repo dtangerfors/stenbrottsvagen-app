@@ -38,6 +38,11 @@ const App = () => {
     bookingKey: "",
   });
 
+  const [archiveBooking, setArchiveBooking] = useState({
+    isArchiving: false,
+    bookingKey: "",
+  });
+
   const handleCompleteBooking = (data: any) => {
     setBookingSuccess({
       status: data.status,
@@ -93,6 +98,13 @@ const App = () => {
 
     document.body.style.overflow = "";
   };
+
+  const archiveCurrentBooking = (data: any) => {
+    setArchiveBooking({
+      isArchiving: data.isArchiving,
+      bookingKey: data.key
+    })
+  }
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -154,6 +166,7 @@ const App = () => {
             closePopup={closePopup}
             user={user}
             onBookingComplete={handleCompleteBooking}
+            archiveCurrentBooking={archiveCurrentBooking}
           />
         </UserContext.Provider>
         {prompt && <InstallPWA />}
